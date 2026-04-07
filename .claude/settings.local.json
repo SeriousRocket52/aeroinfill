@@ -6,7 +6,8 @@
       "Bash(powershell -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\SR52\\\\Documents\\\\aeroinfill\\\\fix_prices.ps1\")",
       "Bash(del \"C:\\\\Users\\\\SR52\\\\Documents\\\\aeroinfill\\\\fix_prices.ps1\")",
       "Bash(powershell -Command \"Get-ChildItem -Path ''C:\\\\Users\\\\SR52\\\\Documents\\\\aeroinfill'' -Recurse -File | ForEach-Object { $path = $_.FullName; $content = Get-Content $path -Raw; if \\($content -match ''SeriousRocket52\\\\.github\\\\.io/aeroinfill''\\) { $content -replace ''SeriousRocket52\\\\.github\\\\.io/aeroinfill'', ''aeroinfill.com'' | Set-Content $path -NoNewline } }\")",
-      "Bash(powershell -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\SR52\\\\Documents\\\\aeroinfill\\\\fix_nav.ps1\")"
+      "Bash(powershell -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\SR52\\\\Documents\\\\aeroinfill\\\\fix_nav.ps1\")",
+      "Bash(powershell -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\SR52\\\\Documents\\\\aeroinfill\\\\fix_deals_nav.ps1\")"
     ]
   }
 }
