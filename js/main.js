@@ -113,3 +113,34 @@
     }
   });
 })();
+
+/* ── Amazon OneLink fallback (CA → US tag swap) ───────────── */
+(function initOneLink() {
+  const tz = (Intl && Intl.DateTimeFormat)
+    ? Intl.DateTimeFormat().resolvedOptions().timeZone || ''
+    : '';
+
+  const US_TIMEZONES = [
+    'America/New_York',    'America/Chicago',      'America/Denver',
+    'America/Los_Angeles', 'America/Phoenix',      'America/Anchorage',
+    'America/Adak',        'America/Boise',        'America/Detroit',
+    'America/Juneau',      'America/Menominee',    'America/Metlakatla',
+    'America/Nome',        'America/Sitka',        'America/Yakutat',
+    'America/Indiana/Indianapolis', 'America/Indiana/Knox',
+    'America/Indiana/Marengo',      'America/Indiana/Petersburg',
+    'America/Indiana/Tell_City',    'America/Indiana/Vevay',
+    'America/Indiana/Vincennes',    'America/Indiana/Winamac',
+    'America/Kentucky/Louisville',  'America/Kentucky/Monticello',
+    'America/North_Dakota/Beulah',  'America/North_Dakota/Center',
+    'America/North_Dakota/New_Salem', 'Pacific/Honolulu'
+  ];
+
+  if (!US_TIMEZONES.includes(tz)) return;
+
+  // Visitor is in the US — swap amazon.ca links to amazon.com with US tag
+  document.querySelectorAll('a[href*="amazon.ca"]').forEach(function(link) {
+    link.href = link.href
+      .replace('amazon.ca', 'amazon.com')
+      .replace('tag=aeroinfill-20', 'tag=aeroinfill0c-20');
+  });
+})();

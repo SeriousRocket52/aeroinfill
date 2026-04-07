@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — AeroInfill</title>
+  <meta name="description" content="AeroInfill privacy policy. How we collect, use, and protect your data." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://aeroinfill.com/privacy.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <style>
+    .page-hero{position:relative;z-index:1;padding:calc(var(--nav-height) + 64px) var(--content-pad) 64px;border-bottom:1px solid var(--border);overflow:hidden;}
+    .page-hero__bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 90% at 100% 50%,rgba(74,82,64,0.18) 0%,transparent 65%),radial-gradient(ellipse 40% 50% at 0% 80%,rgba(212,135,10,0.06) 0%,transparent 60%),var(--black);z-index:-1;}
+    .page-hero__watermark{position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-family:var(--font-display);font-size:clamp(60px,10vw,150px);color:rgba(212,135,10,0.04);letter-spacing:4px;pointer-events:none;white-space:nowrap;line-height:1;}
+    .page-hero__breadcrumb{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:24px;}
+    .page-hero__breadcrumb a{color:var(--amber);text-decoration:none;}
+    .page-hero__breadcrumb a:hover{text-decoration:underline;}
+    .page-hero__tag{font-family:var(--font-mono);font-size:10px;letter-spacing:4px;color:var(--amber);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+    .page-hero__tag::before{content:'';display:inline-block;width:36px;height:1px;background:var(--amber);}
+    .page-hero__title{font-family:var(--font-display);font-size:clamp(52px,8vw,110px);line-height:0.95;letter-spacing:2px;color:var(--off-white);max-width:760px;margin-bottom:20px;}
+    .page-hero__title span{color:var(--amber-bright);}
+    .page-hero__lede{font-size:17px;font-weight:300;color:var(--khaki);max-width:600px;line-height:1.8;}
+    .page-content{max-width:800px;margin:0 auto;padding:64px var(--content-pad) 96px;}
+    .prose-section{margin-bottom:48px;}
+    .prose-section__tag{font-family:var(--font-mono);font-size:9px;letter-spacing:3px;color:var(--amber);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+    .prose-section__tag::before{content:'//';color:var(--text-muted);}
+    .prose-section h2{font-family:var(--font-display);font-size:clamp(28px,3.5vw,42px);letter-spacing:2px;color:var(--off-white);line-height:1;margin-bottom:18px;}
+    .prose-section p{font-size:15px;font-weight:300;color:var(--khaki-light);line-height:1.85;margin-bottom:16px;}
+    .prose-section p strong{font-weight:600;color:var(--off-white);}
+    .prose-section ul{margin:0 0 16px 0;padding:0;}
+    .prose-section ul li{font-size:15px;font-weight:300;color:var(--khaki-light);line-height:1.85;padding:4px 0 4px 20px;position:relative;}
+    .prose-section ul li::before{content:'—';position:absolute;left:0;color:var(--amber);}
+    .prose-section a{color:var(--amber);text-underline-offset:3px;}
+    .prose-section a:hover{color:var(--amber-bright);}
+    .prose-section__divider{height:1px;background:linear-gradient(90deg,var(--amber),transparent);margin-bottom:48px;opacity:0.25;}
+    .last-updated{font-family:var(--font-mono);font-size:10px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:48px;}
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="AeroInfill home">
+      <div class="nav-logo__badge" aria-hidden="true">AI</div>
+      <div><span class="nav-logo__wordmark">AeroInfill</span><span class="nav-logo__sub">3D Printing Intel</span></div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="category/printers.html">Printers</a></li>
+      <li><a href="category/materials.html">Materials</a></li>
+      <li><a href="category/drone-parts.html">Drones &amp; Parts</a></li>
+      <li><a href="category/guides.html">Guides</a></li>
+      <li><a href="category/design-cad.html">Design &amp; CAD</a></li>
+    </ul>
+    <a href="category/guides.html" class="nav-cta">Get Intel</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <nav class="nav-drawer" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="category/printers.html">Printers</a>
+    <a href="category/materials.html">Materials</a>
+    <a href="category/drone-parts.html">Drones &amp; Parts</a>
+    <a href="category/guides.html">Guides</a>
+    <a href="category/design-cad.html">Design &amp; CAD</a>
+    <a href="about.html">About</a>
+    <a href="disclosure.html">Disclosure</a>
+  </nav>
+
+  <header class="page-hero">
+    <div class="page-hero__bg" aria-hidden="true"></div>
+    <div class="page-hero__watermark" aria-hidden="true">PRIVACY</div>
+    <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a><span>&#8250;</span><span aria-current="page">Privacy Policy</span>
+    </nav>
+    <p class="page-hero__tag">AeroInfill // Legal</p>
+    <h1 class="page-hero__title">Privacy <span>Policy</span></h1>
+    <p class="page-hero__lede">How AeroInfill collects, uses, and protects information when you visit this site.</p>
+  </header>
+
+  <main class="page-content">
+    <p class="last-updated">// Last updated: April 2026</p>
+
+    <div class="prose-section">
+      <p class="prose-section__tag">Overview</p>
+      <h2>The Short Version</h2>
+      <p>AeroInfill does not sell your data. We do not run ads. We do not require account registration. The only personal information we collect is what you voluntarily submit through our contact form, and what standard web analytics tools record automatically (page views, referral source, country — no personally identifiable information).</p>
+    </div>
+
+    <div class="prose-section__divider" aria-hidden="true"></div>
+
+    <div class="prose-section">
+      <p class="prose-section__tag">Information We Collect</p>
+      <h2>What We Collect</h2>
+      <p><strong>Contact form submissions:</strong> When you use our contact form, your name, email address, and message are transmitted to Formspree (our form processing service) and forwarded to our email inbox. We use this information solely to respond to your enquiry. We do not add you to any mailing list without your explicit consent.</p>
+      <p><strong>Analytics:</strong> We use basic, privacy-respecting analytics to understand which content is useful to our readers. This may include page views, approximate geographic location (country level), browser type, and referral source. No personally identifiable information is collected through analytics.</p>
+      <p><strong>Cookies:</strong> We do not set any first-party cookies. Third-party services (such as Amazon, Google Fonts, and Formspree) may set their own cookies in accordance with their own privacy policies.</p>
+    </div>
+
+    <div class="prose-section__divider" aria-hidden="true"></div>
+
+    <div class="prose-section">
+      <p class="prose-section__tag">Third Parties</p>
+      <h2>Third-Party Services</h2>
+      <p>AeroInfill uses the following third-party services, each of which operates under its own privacy policy:</p>
+      <ul>
+        <li><strong>Amazon Associates (CA &amp; US):</strong> We participate in the Amazon Associates Programme. When you click an affiliate link, Amazon may set cookies to track your purchase for commission purposes. See <a href="https://www.amazon.ca/gp/help/customer/display.html?nodeId=468496" target="_blank" rel="noopener">Amazon's Privacy Notice</a>.</li>
+        <li><strong>Google Fonts:</strong> Fonts are loaded from Google's servers. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
+        <li><strong>Formspree:</strong> Contact form submissions are processed by Formspree. See <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">Formspree's Privacy Policy</a>.</li>
+        <li><strong>GitHub Pages:</strong> This site is hosted on GitHub Pages. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's Privacy Statement</a>.</li>
+      </ul>
+    </div>
+
+    <div class="prose-section__divider" aria-hidden="true"></div>
+
+    <div class="prose-section">
+      <p class="prose-section__tag">Affiliate Links</p>
+      <h2>Affiliate Disclosure</h2>
+      <p>AeroInfill participates in the Amazon Services LLC Associates Programme, an affiliate advertising programme designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.ca and Amazon.com. When you click a product link on this site and make a purchase, we may earn a small commission at no extra cost to you.</p>
+      <p>Affiliate relationships do not influence our editorial verdicts. For full details, see our <a href="disclosure.html">Affiliate Disclosure page</a>.</p>
+    </div>
+
+    <div class="prose-section__divider" aria-hidden="true"></div>
+
+    <div class="prose-section">
+      <p class="prose-section__tag">Your Rights</p>
+      <h2>Your Rights &amp; Contact</h2>
+      <p>You have the right to request access to, correction of, or deletion of any personal information we hold about you (limited to contact form submissions). To make such a request, or if you have any questions about this policy, <a href="contact.html">contact us directly</a>.</p>
+      <p>This policy may be updated from time to time. The date at the top of this page reflects the most recent revision.</p>
+    </div>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="AeroInfill home"><div class="nav-logo__badge" aria-hidden="true">AI</div><div><span class="nav-logo__wordmark">AeroInfill</span><span class="nav-logo__sub">3D Printing Intel</span></div></a>
+        <p class="footer-brand__tagline">Field-tested reviews and gear intelligence for aerospace and drone hobbyists who build with precision.</p>
+      </div>
+      <div><p class="footer-heading">Categories</p><ul class="footer-links"><li><a href="category/printers.html">Printers</a></li><li><a href="category/materials.html">Materials</a></li><li><a href="category/drone-parts.html">Drone Parts</a></li><li><a href="category/design-cad.html">Design &amp; CAD</a></li><li><a href="category/guides.html">Guides</a></li></ul></div>
+      <div><p class="footer-heading">Top Reads</p><ul class="footer-links"><li><a href="articles/best-3d-printers-drone-frames.html">Best Printers</a></li><li><a href="articles/best-filament-cf-composites.html">Best Filaments</a></li><li><a href="articles/complete-fpv-drone-build-3d-print.html">FPV Build Guide</a></li><li><a href="articles/first-drone-part-beginner-guide.html">Beginner Guide</a></li></ul></div>
+      <div><p class="footer-heading">About</p><ul class="footer-links"><li><a href="about.html">Our Mission</a></li><li><a href="review-process.html">Review Process</a></li><li><a href="disclosure.html">Affiliate Disclosure</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">&copy; 2026 AeroInfill. All rights reserved. &nbsp;//&nbsp; <a href="disclosure.html">Affiliate Disclosure</a> &nbsp;//&nbsp; <a href="privacy.html">Privacy Policy</a><br>AeroInfill is a participant in the Amazon Services LLC Associates Program.</p>
+      <div class="footer-signal"><div class="signal-dot" aria-hidden="true"></div>SIGNAL ACTIVE &mdash; TORONTO, CA</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
