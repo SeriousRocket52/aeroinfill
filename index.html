@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AeroInfill — 3D Printing for Aerospace & Drone Hobbyists</title>
+  <meta name="description" content="Expert reviews, field-tested guides, and precision gear picks for aerospace and FPV drone hobbyists who build what others only dream of." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://SeriousRocket52.github.io/aeroinfill/" />
+  <meta property="og:title" content="AeroInfill — 3D Printing for Aerospace & Drone Hobbyists" />
+  <meta property="og:description" content="Expert reviews, field-tested guides, and precision gear picks." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <style>
+    .hero {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: calc(var(--nav-height) + 60px) var(--content-pad) 80px;
+      overflow: visible;
+    }
+    .hero__bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 70% at 72% 50%, rgba(74,82,64,0.22) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 15% 80%, rgba(212,135,10,0.07) 0%, transparent 60%),
+        var(--black);
+      z-index: -1;
+    }
+    .hero-crosshair {
+      position: absolute; right: 10%; top: 50%; transform: translateY(-50%);
+      width: clamp(240px, 28vw, 380px); height: clamp(240px, 28vw, 380px);
+      opacity: 0.16; pointer-events: none; transition: transform 0.1s ease-out;
+    }
+    .hero-crosshair svg { width: 100%; height: 100%; }
+    .hero__watermark {
+      position: absolute; left: var(--content-pad); top: 60px;
+      font-family: var(--font-display); font-size: clamp(60px, 10vw, 140px);
+      color: rgba(212,135,10,0.04); letter-spacing: 6px;
+      pointer-events: none; line-height: 1; white-space: nowrap; z-index: -1;
+    }
+    .hero__tag {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 4px;
+      color: var(--amber); text-transform: uppercase;
+      margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero__tag::before { content: ''; display: inline-block; width: 40px; height: 1px; background: var(--amber); }
+    .hero__title {
+      font-family: var(--font-display); font-size: clamp(68px, 10vw, 140px);
+      line-height: 0.9; letter-spacing: 2px; color: var(--off-white);
+      max-width: 680px; margin-bottom: 28px;
+      animation: fadeUp 0.8s 0.12s ease both;
+    }
+    .hero__title span { color: var(--amber-bright); display: block; }
+    .hero__sub {
+      font-size: 16px; font-weight: 300; color: var(--khaki);
+      max-width: 460px; line-height: 1.75; margin-bottom: 40px;
+      animation: fadeUp 0.8s 0.24s ease both;
+    }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; animation: fadeUp 0.8s 0.36s ease both; }
+    .hero__stats { animation: fadeUp 0.8s 0.52s ease both; }
+    .deals-section, .categories-section { background: var(--panel); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    @media (max-width: 860px) { .hero-crosshair { display: none; } .hero__title { font-size: clamp(56px, 14vw, 100px); } }
+    @media (max-width: 480px) { .hero__actions { flex-direction: column; } .hero__actions .btn { justify-content: center; } }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="AeroInfill home">
+      <div class="nav-logo__badge" aria-hidden="true">AI</div>
+      <div>
+        <span class="nav-logo__wordmark">AeroInfill</span>
+        <span class="nav-logo__sub">3D Printing Intel</span>
+      </div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="category/printers.html">Printers</a></li>
+      <li><a href="category/materials.html">Materials</a></li>
+      <li><a href="category/drone-parts.html">Drones &amp; Parts</a></li>
+      <li><a href="category/guides.html">Guides</a></li>
+      <li><a href="category/design-cad.html">Design &amp; CAD</a></li>
+      <li><a href="#">Deals</a></li>
+    </ul>
+    <a href="category/guides.html" class="nav-cta">Get Intel</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <nav class="nav-drawer" aria-label="Mobile navigation">
+    <a href="category/printers.html">Printers</a>
+    <a href="category/materials.html">Materials</a>
+    <a href="category/drone-parts.html">Drones &amp; Parts</a>
+    <a href="category/guides.html">Guides</a>
+    <a href="category/design-cad.html">Design &amp; CAD</a>
+    <a href="#">Deals</a>
+    <a href="about.html">About</a>
+    <a href="disclosure.html">Disclosure</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__watermark" aria-hidden="true">AEROINFILL</div>
+    <div class="hero-crosshair" aria-hidden="true">
+      <svg viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="180" cy="180" r="178" stroke="#d4870a" stroke-width="1" stroke-dasharray="4 8"/>
+        <circle cx="180" cy="180" r="128" stroke="#d4870a" stroke-width="0.5" opacity="0.6"/>
+        <circle cx="180" cy="180" r="66"  stroke="#d4870a" stroke-width="0.5" opacity="0.4"/>
+        <circle cx="180" cy="180" r="7"   fill="#d4870a" opacity="0.8"/>
+        <line x1="0" y1="180" x2="114" y2="180" stroke="#d4870a" stroke-width="1" opacity="0.5"/>
+        <line x1="246" y1="180" x2="360" y2="180" stroke="#d4870a" stroke-width="1" opacity="0.5"/>
+        <line x1="180" y1="0" x2="180" y2="114" stroke="#d4870a" stroke-width="1" opacity="0.5"/>
+        <line x1="180" y1="246" x2="180" y2="360" stroke="#d4870a" stroke-width="1" opacity="0.5"/>
+        <line x1="50" y1="174" x2="50" y2="186" stroke="#d4870a" stroke-width="1" opacity="0.4"/>
+        <line x1="310" y1="174" x2="310" y2="186" stroke="#d4870a" stroke-width="1" opacity="0.4"/>
+        <line x1="174" y1="50" x2="186" y2="50" stroke="#d4870a" stroke-width="1" opacity="0.4"/>
+        <line x1="174" y1="310" x2="186" y2="310" stroke="#d4870a" stroke-width="1" opacity="0.4"/>
+        <path d="M12 44 L12 12 L44 12" stroke="#d4870a" stroke-width="1" fill="none" opacity="0.45"/>
+        <path d="M348 44 L348 12 L316 12" stroke="#d4870a" stroke-width="1" fill="none" opacity="0.45"/>
+        <path d="M12 316 L12 348 L44 348" stroke="#d4870a" stroke-width="1" fill="none" opacity="0.45"/>
+        <path d="M348 316 L348 348 L316 348" stroke="#d4870a" stroke-width="1" fill="none" opacity="0.45"/>
+      </svg>
+    </div>
+    <p class="hero__tag">OBJ-01 // AeroInfill Intel Hub</p>
+    <h1 class="hero__title">PRINT.<br>FLY.<br><span>DOMINATE.</span></h1>
+    <p class="hero__sub">Expert reviews, field-tested guides, and precision gear picks for aerospace and FPV drone hobbyists who build what others only dream of.</p>
+    <div class="hero__actions">
+      <a href="category/printers.html" class="btn btn-primary">Explore Printers</a>
+      <a href="#deals" class="btn btn-outline">View Top Deals</a>
+    </div>
+    <div class="stat-bar hero__stats">
+      <div class="stat"><span class="stat__num">240+</span><span class="stat__label">Products Reviewed</span></div>
+      <div class="stat"><span class="stat__num">18K</span><span class="stat__label">Active Builders</span></div>
+      <div class="stat"><span class="stat__num">97%</span><span class="stat__label">Accuracy Rating</span></div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__inner">
+      <span class="ticker__item">BAMBU LAB X1 CARBON — TOP CF PICK</span>
+      <span class="ticker__item">PRUSA MK4S — BEST OPEN-SOURCE BUILD</span>
+      <span class="ticker__item">ELEGOO SATURN 4 — RESIN PRECISION</span>
+      <span class="ticker__item">POLYMAKER ASA — UV FIELD TESTED</span>
+      <span class="ticker__item">CREALITY K1 MAX — BUDGET SPEED</span>
+      <span class="ticker__item">QIDI X-PLUS 3 — ENCLOSED CHAMPION</span>
+      <span class="ticker__item">GEPRC MARK5 — CRASH-PROOF FRAME</span>
+      <span class="ticker__item">INTAMSYS PEEK — AEROSPACE GRADE</span>
+      <span class="ticker__item">BAMBU LAB X1 CARBON — TOP CF PICK</span>
+      <span class="ticker__item">PRUSA MK4S — BEST OPEN-SOURCE BUILD</span>
+      <span class="ticker__item">ELEGOO SATURN 4 — RESIN PRECISION</span>
+      <span class="ticker__item">POLYMAKER ASA — UV FIELD TESTED</span>
+      <span class="ticker__item">CREALITY K1 MAX — BUDGET SPEED</span>
+      <span class="ticker__item">QIDI X-PLUS 3 — ENCLOSED CHAMPION</span>
+      <span class="ticker__item">GEPRC MARK5 — CRASH-PROOF FRAME</span>
+      <span class="ticker__item">INTAMSYS PEEK — AEROSPACE GRADE</span>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section class="section-pad categories-section" aria-labelledby="cat-heading">
+    <div class="section-header reveal">
+      <div>
+        <p class="section-tag">Mission Sectors</p>
+        <h2 class="section-title" id="cat-heading">Browse <span>Categories</span></h2>
+      </div>
+      <a href="category/printers.html" class="view-all-link">All Categories &#8594;</a>
+    </div>
+    <nav class="cat-grid" aria-label="Content categories">
+      <a href="category/printers.html" class="cat-card reveal">
+        <span class="cat-card__num">CAT-01</span>
+        <span class="cat-card__icon" aria-hidden="true">&#128424;&#65039;</span>
+        <span class="cat-card__name">Printers</span>
+        <p class="cat-card__desc">FDM, resin &amp; CF-capable machines built for functional aerospace-grade parts.</p>
+        <span class="cat-card__count">&#8594; 47 Reviews</span>
+      </a>
+      <a href="category/materials.html" class="cat-card reveal">
+        <span class="cat-card__num">CAT-02</span>
+        <span class="cat-card__icon" aria-hidden="true">&#129525;</span>
+        <span class="cat-card__name">Materials</span>
+        <p class="cat-card__desc">High-temp, CF, and UV-resistant filaments tested across 500+ print hours.</p>
+        <span class="cat-card__count">&#8594; 63 Reviews</span>
+      </a>
+      <a href="category/drone-parts.html" class="cat-card reveal">
+        <span class="cat-card__num">CAT-03</span>
+        <span class="cat-card__icon" aria-hidden="true">&#128641;</span>
+        <span class="cat-card__name">Drone Parts</span>
+        <p class="cat-card__desc">Frames, mounts, shrouds &amp; printable components for FPV and fixed-wing builds.</p>
+        <span class="cat-card__count">&#8594; 38 Reviews</span>
+      </a>
+      <a href="category/design-cad.html" class="cat-card reveal">
+        <span class="cat-card__num">CAT-04</span>
+        <span class="cat-card__icon" aria-hidden="true">&#128208;</span>
+        <span class="cat-card__name">Design &amp; CAD</span>
+        <p class="cat-card__desc">Software, slicer profiles, and STL libraries for precision part design.</p>
+        <span class="cat-card__count">&#8594; 29 Guides</span>
+      </a>
+      <a href="category/guides.html" class="cat-card reveal">
+        <span class="cat-card__num">CAT-05</span>
+        <span class="cat-card__icon" aria-hidden="true">&#128218;</span>
+        <span class="cat-card__name">Guides</span>
+        <p class="cat-card__desc">From first print to aerospace-grade tolerances — step-by-step field manuals.</p>
+        <span class="cat-card__count">&#8594; 54 Guides</span>
+      </a>
+    </nav>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <!-- FEATURED POSTS -->
+  <section class="section-pad" aria-labelledby="posts-heading">
+    <div class="section-header reveal">
+      <div>
+        <p class="section-tag">Field Intelligence</p>
+        <h2 class="section-title" id="posts-heading">Featured <span>Articles</span></h2>
+      </div>
+      <a href="category/guides.html" class="view-all-link">All Articles &#8594;</a>
+    </div>
+    <div class="posts-grid">
+      <a href="articles/best-3d-printers-drone-frames.html" class="post-card post-card--featured reveal">
+        <div class="post-card__thumb thumb-bg-1">
+          <div class="post-card__thumb-inner"><span class="post-card__thumb-icon" aria-hidden="true">&#128424;&#65039;</span></div>
+          <span class="post-card__badge">Editor's Pick</span>
+        </div>
+        <div class="post-card__body">
+          <div class="post-card__meta"><span class="post-card__cat">Printers</span><span class="post-card__date">JAN 14, 2025</span></div>
+          <h3 class="post-card__title">7 Best 3D Printers for Drone Frames in 2025 (FPV &amp; Fixed-Wing Tested)</h3>
+          <p class="post-card__excerpt">We stress-tested 11 machines across 400+ hours printing PETG-CF, ASA, and PLA to find the definitive picks for builders who can't afford failures mid-build.</p>
+          <div class="post-card__footer"><span class="post-card__read-time">12 MIN READ</span><span class="post-card__arrow" aria-hidden="true">&#8594;</span></div>
+        </div>
+      </a>
+      <a href="#" class="post-card reveal">
+        <div class="post-card__thumb thumb-bg-2">
+          <div class="post-card__thumb-inner"><span class="post-card__thumb-icon" aria-hidden="true">&#129525;</span></div>
+          <span class="post-card__badge">High-Traffic</span>
+        </div>
+        <div class="post-card__body">
+          <div class="post-card__meta"><span class="post-card__cat">Materials</span><span class="post-card__date">JAN 09, 2025</span></div>
+          <h3 class="post-card__title">Can Your Printer Handle Carbon Fiber? The 5 Best CF Filaments Ranked</h3>
+          <p class="post-card__excerpt">Not all hotends survive CF. Here's what you actually need.</p>
+          <div class="post-card__footer"><span class="post-card__read-time">8 MIN READ</span><span class="post-card__arrow" aria-hidden="true">&#8594;</span></div>
+        </div>
+      </a>
+      <a href="#" class="post-card reveal">
+        <div class="post-card__thumb thumb-bg-3">
+          <div class="post-card__thumb-inner"><span class="post-card__thumb-icon" aria-hidden="true">&#128641;</span></div>
+        </div>
+        <div class="post-card__body">
+          <div class="post-card__meta"><span class="post-card__cat">Drone Parts</span><span class="post-card__date">JAN 05, 2025</span></div>
+          <h3 class="post-card__title">FPV Frame Designs That Actually Survive Hard Crashes</h3>
+          <p class="post-card__excerpt">Geometry matters more than material. Here's our STL shortlist.</p>
+          <div class="post-card__footer"><span class="post-card__read-time">9 MIN READ</span><span class="post-card__arrow" aria-hidden="true">&#8594;</span></div>
+        </div>
+      </a>
+      <a href="#" class="post-card reveal">
+        <div class="post-card__thumb thumb-bg-4">
+          <div class="post-card__thumb-inner"><span class="post-card__thumb-icon" aria-hidden="true">&#9876;&#65039;</span></div>
+          <span class="post-card__badge">Comparison</span>
+        </div>
+        <div class="post-card__body">
+          <div class="post-card__meta"><span class="post-card__cat">Printers</span><span class="post-card__date">DEC 28, 2024</span></div>
+          <h3 class="post-card__title">Bambu Lab vs Prusa for Functional Parts: Which One Delivers?</h3>
+          <p class="post-card__excerpt">Speed vs repairability. Two philosophies, one verdict for drone builders.</p>
+          <div class="post-card__footer"><span class="post-card__read-time">10 MIN READ</span><span class="post-card__arrow" aria-hidden="true">&#8594;</span></div>
+        </div>
+      </a>
+      <a href="#" class="post-card reveal">
+        <div class="post-card__thumb thumb-bg-5">
+          <div class="post-card__thumb-inner"><span class="post-card__thumb-icon" aria-hidden="true">&#128208;</span></div>
+        </div>
+        <div class="post-card__body">
+          <div class="post-card__meta"><span class="post-card__cat">Guides</span><span class="post-card__date">DEC 20, 2024</span></div>
+          <h3 class="post-card__title">Perfect ASA Print Settings for Drone Parts: The Complete Slicer Guide</h3>
+          <p class="post-card__excerpt">Stop fighting warping. These profiles work on every major slicer.</p>
+          <div class="post-card__footer"><span class="post-card__read-time">7 MIN READ</span><span class="post-card__arrow" aria-hidden="true">&#8594;</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- DEALS -->
+  <section class="section-pad deals-section" id="deals" aria-labelledby="deals-heading">
+    <div class="section-header reveal">
+      <div>
+        <p class="section-tag">Active Intel</p>
+        <h2 class="section-title" id="deals-heading">Top Deals <span>Right Now</span></h2>
+      </div>
+      <a href="#" class="view-all-link">All Deals &#8594;</a>
+    </div>
+    <div class="deals-grid">
+      <a href="#" class="deal-card reveal" rel="nofollow noopener">
+        <div class="deal-card__img" aria-hidden="true">&#128424;&#65039;</div>
+        <div class="deal-card__info">
+          <div class="deal-card__name">Bambu Lab P1S</div>
+          <div class="deal-card__rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="deal-card__price"><span class="deal-card__price-now">$599</span><span class="deal-card__price-was">$749</span></div>
+          <span class="deal-card__badge">20% OFF &#8212; Limited</span>
+        </div>
+      </a>
+      <a href="#" class="deal-card reveal" rel="nofollow noopener">
+        <div class="deal-card__img" aria-hidden="true">&#129525;</div>
+        <div class="deal-card__info">
+          <div class="deal-card__name">Polymaker PolyMide PA-CF</div>
+          <div class="deal-card__rating">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+          <div class="deal-card__price"><span class="deal-card__price-now">$34</span><span class="deal-card__price-was">$46</span></div>
+          <span class="deal-card__badge">Bundle Deal &#8212; 3 Spools</span>
+        </div>
+      </a>
+      <a href="#" class="deal-card reveal" rel="nofollow noopener">
+        <div class="deal-card__img" aria-hidden="true">&#128300;</div>
+        <div class="deal-card__info">
+          <div class="deal-card__name">Elegoo Saturn 4 Ultra</div>
+          <div class="deal-card__rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="deal-card__price"><span class="deal-card__price-now">$449</span><span class="deal-card__price-was">$549</span></div>
+          <span class="deal-card__badge">Flash Sale &#8212; 18% OFF</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <!-- AFFILIATE BOX DEMO -->
+  <section class="section-pad" aria-labelledby="aff-demo-heading">
+    <div class="reveal" style="margin-bottom:32px;">
+      <p class="section-tag">Reusable Component</p>
+      <h2 class="section-title" id="aff-demo-heading">Affiliate Product Box <span>Demo</span></h2>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:10px;font-family:var(--font-mono);letter-spacing:1px;">// Copy &amp; paste into any article. Swap image, title, bullets, price, and Amazon link.</p>
+    </div>
+
+    <!-- STANDARD AFFILIATE BOX -->
+    <div class="affiliate-box reveal">
+      <div class="affiliate-box__img-wrap">
+        <img src="images/placeholder.jpg" alt="Bambu Lab X1 Carbon 3D Printer" onerror="this.style.display='none'" />
+        <span style="font-size:90px;opacity:0.3;position:absolute;" aria-hidden="true">&#128424;&#65039;</span>
+        <span class="affiliate-box__badge">Editor's Pick</span>
+      </div>
+      <div class="affiliate-box__body">
+        <p class="affiliate-box__category">FDM Printer // Enclosed &#8212; Carbon Fiber Ready</p>
+        <h3 class="affiliate-box__title">Bambu Lab X1 Carbon</h3>
+        <div class="affiliate-box__rating">
+          <span class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="affiliate-box__rating-num">4.9 / 5.0 &mdash; 312 Reviews</span>
+        </div>
+        <ul class="affiliate-box__bullets">
+          <li>500 mm/s top speed with dual-axis vibration compensation</li>
+          <li>Enclosed build chamber &#8212; handles ABS, ASA, and PETG-CF out of the box</li>
+          <li>Hardened steel nozzle included &#8212; CF filament ready from day one</li>
+          <li>256 &times; 256 &times; 256 mm build volume with 7-colour multi-material support</li>
+          <li>Built-in AI print monitoring catches failures before they waste filament</li>
+        </ul>
+        <div class="affiliate-box__price-row">
+          <div>
+            <span class="affiliate-box__price">$1,199</span>
+            <span class="affiliate-box__price-was">Was $1,449</span>
+          </div>
+          <a href="https://www.amazon.com/dp/ASIN_HERE?tag=YOUR-TAG-20" class="affiliate-box__cta affiliate-box__cta--amazon" target="_blank" rel="nofollow noopener sponsored" aria-label="Check price of Bambu Lab X1 Carbon on Amazon">
+            Check Price on Amazon
+          </a>
+        </div>
+        <p class="affiliate-box__disclaimer">&#9888; Affiliate link &#8212; we earn a small commission if you buy, at no extra cost to you. See our <a href="disclosure.html" style="color:var(--amber)">full disclosure</a>.</p>
+      </div>
+    </div>
+
+    <!-- COMPACT AFFILIATE BOX -->
+    <p style="font-family:var(--font-mono);font-size:10px;letter-spacing:2px;color:var(--text-muted);margin:40px 0 16px;text-transform:uppercase;">// Compact variant &#8212; for sidebars &amp; inline use</p>
+    <div class="affiliate-box affiliate-box--compact reveal">
+      <div class="affiliate-box__img-wrap">
+        <span style="font-size:60px;opacity:0.3;" aria-hidden="true">&#129525;</span>
+        <span class="affiliate-box__badge">Top Pick</span>
+      </div>
+      <div class="affiliate-box__body">
+        <p class="affiliate-box__category">Filament // Nylon CF Composite</p>
+        <h3 class="affiliate-box__title">Polymaker PolyMide PA-CF</h3>
+        <div class="affiliate-box__rating">
+          <span class="stars" aria-label="4.8 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="affiliate-box__rating-num">4.8 / 5.0</span>
+        </div>
+        <ul class="affiliate-box__bullets">
+          <li>Best real-world CF composite for drone frames</li>
+          <li>87 MPa tensile strength &#8212; survives crash loading</li>
+          <li>Requires hardened steel nozzle (see our guide)</li>
+        </ul>
+        <div class="affiliate-box__price-row">
+          <div><span class="affiliate-box__price">$34</span><span class="affiliate-box__price-was">Was $46</span></div>
+          <a href="https://www.amazon.com/dp/ASIN_HERE?tag=YOUR-TAG-20" class="affiliate-box__cta affiliate-box__cta--amazon" target="_blank" rel="nofollow noopener sponsored">Check Price on Amazon</a>
+        </div>
+        <p class="affiliate-box__disclaimer">&#9888; Affiliate link &#8212; see our <a href="disclosure.html" style="color:var(--amber)">disclosure</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <!-- NEWSLETTER -->
+  <section class="section-pad" aria-labelledby="newsletter-heading">
+    <div class="newsletter-section">
+      <div class="newsletter-text reveal">
+        <p class="section-tag">Secure Channel</p>
+        <h2 class="section-title" id="newsletter-heading">Get the <span>Intel Brief</span></h2>
+        <p>Weekly drops: printer reviews, deal alerts, print settings, and free STL files. No noise. No spam. Just field-grade signal.</p>
+      </div>
+      <div class="newsletter-form reveal">
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <input type="email" name="email" placeholder="operator@yourdomain.com" required autocomplete="email" aria-label="Email address" />
+          <button type="submit">Transmit &#8594;</button>
+        </form>
+        <p class="newsletter-disclaimer">// No spam. Unsubscribe any time. Affiliate disclosure applies.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="AeroInfill home">
+          <div class="nav-logo__badge" aria-hidden="true">AI</div>
+          <div><span class="nav-logo__wordmark">AeroInfill</span><span class="nav-logo__sub">3D Printing Intel</span></div>
+        </a>
+        <p class="footer-brand__tagline">Field-tested reviews and gear intelligence for aerospace and drone hobbyists who build with precision.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Categories</p>
+        <ul class="footer-links">
+          <li><a href="category/printers.html">Printers</a></li>
+          <li><a href="category/materials.html">Materials</a></li>
+          <li><a href="category/drone-parts.html">Drone Parts</a></li>
+          <li><a href="category/design-cad.html">Design &amp; CAD</a></li>
+          <li><a href="category/guides.html">Guides</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Resources</p>
+        <ul class="footer-links">
+          <li><a href="#">Top Deals</a></li>
+          <li><a href="#">Comparisons</a></li>
+          <li><a href="#">STL Library</a></li>
+          <li><a href="#">Newsletter</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">About</p>
+        <ul class="footer-links">
+          <li><a href="about.html">Our Mission</a></li>
+          <li><a href="#">Review Process</a></li>
+          <li><a href="disclosure.html">Affiliate Disclosure</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">
+        &copy; 2025 AeroInfill. All rights reserved. &nbsp;//&nbsp;
+        <a href="disclosure.html">Affiliate Disclosure</a> &nbsp;//&nbsp;
+        <a href="#">Privacy Policy</a><br>
+        AeroInfill is a participant in the Amazon Services LLC Associates Program,
+        an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com.
+      </p>
+      <div class="footer-signal"><div class="signal-dot" aria-hidden="true"></div>SIGNAL ACTIVE &#8212; TORONTO, CA</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

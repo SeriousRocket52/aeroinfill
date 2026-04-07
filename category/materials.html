@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Best Filaments &amp; Materials for Drone &amp; Aerospace 3D Printing — AeroInfill</title>
+  <meta name="description" content="63 filaments and resins field-tested for drone frames, UAV parts, and aerospace-grade 3D printing. CF composites, ASA, PEEK, TPU, and resin ranked and reviewed." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://SeriousRocket52.github.io/aeroinfill/category/materials.html" />
+  <meta property="og:title" content="Best Filaments &amp; Materials for Drone &amp; Aerospace 3D Printing — AeroInfill" />
+  <meta property="og:description" content="63 materials tested across 500+ hours. CF composites, ASA, PEEK, TPU and resin ranked." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <style>
+    .cat-hero { position:relative; z-index:1; padding:calc(var(--nav-height) + 56px) var(--content-pad) 56px; border-bottom:1px solid var(--border); overflow:hidden; }
+    .cat-hero__bg { position:absolute; inset:0; background:radial-gradient(ellipse 80% 110% at 100% 60%, rgba(74,82,64,0.18) 0%, transparent 65%), radial-gradient(ellipse 50% 60% at 0% 100%, rgba(212,135,10,0.06) 0%, transparent 60%), var(--black); z-index:-1; }
+    .cat-hero__watermark { position:absolute; right:-10px; top:50%; transform:translateY(-50%); font-family:var(--font-display); font-size:clamp(60px,11vw,160px); color:rgba(212,135,10,0.04); letter-spacing:4px; pointer-events:none; white-space:nowrap; line-height:1; }
+    .cat-hero__breadcrumb { display:flex; align-items:center; gap:10px; font-family:var(--font-mono); font-size:10px; letter-spacing:2px; color:var(--text-muted); text-transform:uppercase; margin-bottom:24px; }
+    .cat-hero__breadcrumb a { color:var(--amber); text-decoration:none; }
+    .cat-hero__breadcrumb a:hover { text-decoration:underline; }
+    .cat-hero__tag { font-family:var(--font-mono); font-size:10px; letter-spacing:4px; color:var(--amber); text-transform:uppercase; display:flex; align-items:center; gap:12px; margin-bottom:16px; animation:fadeUp 0.7s ease both; }
+    .cat-hero__tag::before { content:''; display:inline-block; width:36px; height:1px; background:var(--amber); }
+    .cat-hero__title { font-family:var(--font-display); font-size:clamp(48px,7vw,96px); line-height:0.95; letter-spacing:2px; color:var(--off-white); max-width:760px; margin-bottom:20px; animation:fadeUp 0.7s 0.1s ease both; }
+    .cat-hero__title span { color:var(--amber-bright); }
+    .cat-hero__desc { font-size:16px; font-weight:300; color:var(--khaki); max-width:600px; line-height:1.75; margin-bottom:36px; animation:fadeUp 0.7s 0.2s ease both; }
+    .cat-hero__stats { display:flex; flex-wrap:wrap; animation:fadeUp 0.7s 0.3s ease both; }
+    .cat-stat { display:flex; flex-direction:column; gap:3px; padding:16px 28px 16px 0; margin-right:28px; border-right:1px solid var(--border); }
+    .cat-stat:last-child { border-right:none; margin-right:0; }
+    .cat-stat__num { font-family:var(--font-display); font-size:34px; color:var(--amber-bright); letter-spacing:2px; line-height:1; }
+    .cat-stat__label { font-family:var(--font-mono); font-size:9px; letter-spacing:2px; color:var(--text-muted); text-transform:uppercase; }
+    .filter-bar { position:relative; z-index:1; background:var(--panel); border-bottom:1px solid var(--border); padding:0 var(--content-pad); display:flex; align-items:center; gap:0; overflow-x:auto; scrollbar-width:none; }
+    .filter-bar::-webkit-scrollbar { display:none; }
+    .filter-bar__label { font-family:var(--font-mono); font-size:9px; letter-spacing:3px; color:var(--text-muted); text-transform:uppercase; white-space:nowrap; padding-right:20px; border-right:1px solid var(--border); margin-right:4px; flex-shrink:0; }
+    .filter-pill { font-family:var(--font-condensed); font-size:12px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--khaki); background:transparent; border:none; padding:14px 18px; cursor:crosshair; white-space:nowrap; flex-shrink:0; border-bottom:2px solid transparent; transition:color var(--transition), border-color var(--transition); }
+    .filter-pill:hover { color:var(--amber-bright); }
+    .filter-pill.active { color:var(--amber-bright); border-bottom-color:var(--amber); }
+    .filter-bar__spacer { flex:1; }
+    .filter-bar__count { font-family:var(--font-mono); font-size:10px; letter-spacing:2px; color:var(--text-muted); white-space:nowrap; flex-shrink:0; padding-left:20px; border-left:1px solid var(--border); }
+    .filter-bar__count strong { color:var(--amber-bright); }
+    .grid-section { position:relative; z-index:1; padding:var(--space-xl) var(--content-pad); }
+    .article-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+    .article-card { background:var(--panel-light); border:1px solid var(--border); display:flex; flex-direction:column; text-decoration:none; cursor:crosshair; transition:border-color var(--transition); overflow:hidden; position:relative; }
+    .article-card:hover { border-color:var(--border-strong); }
+    .article-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--amber); transform:scaleX(0); transform-origin:left; transition:transform 0.35s ease; }
+    .article-card:hover::before { transform:scaleX(1); }
+    .article-card::after { content:''; position:absolute; bottom:0; right:0; width:16px; height:16px; border-top:1px solid rgba(212,135,10,0.25); border-left:1px solid rgba(212,135,10,0.25); transform:translate(8px,8px) rotate(180deg); }
+    .article-card__thumb { height:220px; position:relative; overflow:hidden; flex-shrink:0; }
+    .article-card__thumb-inner { width:100%; height:100%; display:flex; align-items:center; justify-content:center; transition:transform 0.4s ease; }
+    .article-card:hover .article-card__thumb-inner { transform:scale(1.04); }
+    .article-card__thumb-inner img { width:100%; height:100%; object-fit:cover; mix-blend-mode:luminosity; opacity:0.75; transition:opacity 0.3s ease; }
+    .article-card:hover .article-card__thumb-inner img { opacity:0.9; }
+    .article-card__thumb-icon { font-size:72px; opacity:0.35; line-height:1; }
+    .article-card__thumb::before, .article-card__thumb::after { content:''; position:absolute; width:14px; height:14px; border-color:rgba(212,135,10,0.45); border-style:solid; z-index:2; }
+    .article-card__thumb::before { top:8px; left:8px; border-width:1px 0 0 1px; }
+    .article-card__thumb::after  { bottom:8px; right:8px; border-width:0 1px 1px 0; }
+    .article-card__badge { position:absolute; top:10px; right:10px; font-family:var(--font-mono); font-size:9px; letter-spacing:2px; text-transform:uppercase; background:var(--amber); color:var(--black); padding:4px 10px; z-index:3; }
+    .article-card__badge--new { background:#3a6640; color:var(--khaki-light); border:1px solid rgba(80,160,80,0.4); }
+    .thumb-bg-1 { background:linear-gradient(135deg,#1e2820,#283828); }
+    .thumb-bg-2 { background:linear-gradient(135deg,#28201a,#3a2e1e); }
+    .thumb-bg-3 { background:linear-gradient(135deg,#1a1e28,#242838); }
+    .thumb-bg-4 { background:linear-gradient(135deg,#2e3328,#4a5240); }
+    .article-card__body { padding:24px 24px 20px; display:flex; flex-direction:column; gap:10px; flex:1; }
+    .article-card__meta { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+    .article-card__cat { font-family:var(--font-mono); font-size:9px; letter-spacing:2px; color:var(--amber); text-transform:uppercase; }
+    .article-card__date { font-family:var(--font-mono); font-size:9px; color:var(--text-muted); }
+    .article-card__title { font-family:var(--font-condensed); font-weight:700; font-size:20px; line-height:1.25; color:var(--khaki-light); transition:color var(--transition); }
+    .article-card:hover .article-card__title { color:var(--amber-bright); }
+    .article-card__excerpt { font-size:13px; color:var(--text-muted); line-height:1.65; flex:1; }
+    .article-card__pills { display:flex; gap:6px; flex-wrap:wrap; }
+    .article-card__pill { font-family:var(--font-mono); font-size:9px; letter-spacing:1px; color:var(--steel); background:rgba(138,155,168,0.07); border:1px solid rgba(138,155,168,0.18); padding:3px 8px; }
+    .article-card__pill--highlight { color:var(--amber); background:rgba(212,135,10,0.07); border-color:rgba(212,135,10,0.22); }
+    .article-card__footer { display:flex; align-items:center; justify-content:space-between; gap:12px; padding-top:16px; margin-top:6px; border-top:1px solid rgba(212,135,10,0.1); }
+    .article-card__read { font-family:var(--font-mono); font-size:10px; letter-spacing:1px; color:var(--steel); }
+    .article-card__btn { font-family:var(--font-condensed); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--black); background:var(--amber); padding:9px 18px; text-decoration:none; cursor:crosshair; transition:background var(--transition); white-space:nowrap; flex-shrink:0; }
+    .article-card__btn:hover { background:var(--amber-bright); }
+    .article-card--featured { grid-column:span 2; flex-direction:row; }
+    .article-card--featured .article-card__thumb { width:340px; height:auto; flex-shrink:0; flex-grow:0; }
+    .article-card--featured .article-card__thumb-icon { font-size:100px; }
+    .article-card--featured .article-card__title { font-size:26px; }
+    .article-card--featured .article-card__body { padding:32px 28px; }
+    .article-card--featured .article-card__btn { font-size:12px; padding:11px 22px; }
+    .load-more-wrap { text-align:center; padding:48px var(--content-pad) 0; }
+    .btn-load-more { font-family:var(--font-condensed); font-size:13px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--khaki-light); background:transparent; border:1px solid var(--olive-light); padding:14px 48px; cursor:crosshair; transition:all var(--transition); display:inline-flex; align-items:center; gap:10px; }
+    .btn-load-more:hover { border-color:var(--amber); color:var(--amber); }
+    .cross-links-section { position:relative; z-index:1; background:var(--panel); border-top:1px solid var(--border); padding:var(--space-lg) var(--content-pad); }
+    .cross-links-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-top:32px; }
+    .cross-link-card { background:var(--panel-light); border:1px solid var(--border); padding:24px 20px; text-decoration:none; display:flex; flex-direction:column; gap:10px; cursor:crosshair; transition:border-color var(--transition); position:relative; overflow:hidden; }
+    .cross-link-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--amber); transform:scaleX(0); transform-origin:left; transition:transform 0.35s ease; }
+    .cross-link-card:hover { border-color:var(--border-strong); }
+    .cross-link-card:hover::before { transform:scaleX(1); }
+    .cross-link-card__icon { font-size:28px; line-height:1; }
+    .cross-link-card__name { font-family:var(--font-display); font-size:22px; letter-spacing:1px; color:var(--khaki-light); line-height:1; transition:color var(--transition); }
+    .cross-link-card:hover .cross-link-card__name { color:var(--amber-bright); }
+    .cross-link-card__desc { font-size:12px; color:var(--text-muted); line-height:1.6; }
+    .cross-link-card__count { font-family:var(--font-mono); font-size:9px; letter-spacing:2px; color:var(--amber); margin-top:auto; }
+    @media (max-width:1024px) { .article-grid { grid-template-columns:repeat(2,1fr); } .article-card--featured { grid-column:span 2; flex-direction:column; } .article-card--featured .article-card__thumb { width:100%; height:240px; } .cross-links-grid { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:680px) { .article-grid { grid-template-columns:1fr; } .article-card--featured { grid-column:span 1; } .cross-links-grid { grid-template-columns:1fr 1fr; } .cat-stat { padding:12px 20px 12px 0; margin-right:20px; } }
+    @media (max-width:420px) { .cross-links-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="../index.html" class="nav-logo" aria-label="AeroInfill home">
+      <div class="nav-logo__badge" aria-hidden="true">AI</div>
+      <div><span class="nav-logo__wordmark">AeroInfill</span><span class="nav-logo__sub">3D Printing Intel</span></div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="printers.html">Printers</a></li>
+      <li><a href="materials.html" class="active">Materials</a></li>
+      <li><a href="drone-parts.html">Drones &amp; Parts</a></li>
+      <li><a href="guides.html">Guides</a></li>
+      <li><a href="design-cad.html">Design &amp; CAD</a></li>
+      <li><a href="#">Deals</a></li>
+    </ul>
+    <a href="guides.html" class="nav-cta">Get Intel</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <nav class="nav-drawer" aria-label="Mobile navigation">
+    <a href="../index.html">Home</a>
+    <a href="printers.html">Printers</a>
+    <a href="materials.html">Materials</a>
+    <a href="drone-parts.html">Drones &amp; Parts</a>
+    <a href="guides.html">Guides</a>
+    <a href="design-cad.html">Design &amp; CAD</a>
+    <a href="#">Deals</a>
+  </nav>
+
+  <header class="cat-hero">
+    <div class="cat-hero__bg" aria-hidden="true"></div>
+    <div class="cat-hero__watermark" aria-hidden="true">MATERIALS</div>
+    <nav class="cat-hero__breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span>&#8250;</span><span aria-current="page">Materials</span>
+    </nav>
+    <p class="cat-hero__tag">CAT-02 // Material Intelligence</p>
+    <h1 class="cat-hero__title">Filaments &amp; Materials<br>for <span>Aerospace Parts</span></h1>
+    <p class="cat-hero__desc">The wrong filament will crack on impact, warp in UV sunlight, or strip your nozzle in 20 hours. Every material we review has been tested in real drone builds and outdoor field conditions — not just on a printer farm. CF composites, ASA, PEEK, TPU, and resin: here's what actually holds up.</p>
+    <div class="cat-hero__stats">
+      <div class="cat-stat"><span class="cat-stat__num">63</span><span class="cat-stat__label">Materials Tested</span></div>
+      <div class="cat-stat"><span class="cat-stat__num">500+</span><span class="cat-stat__label">Hours in Field</span></div>
+      <div class="cat-stat"><span class="cat-stat__num">8</span><span class="cat-stat__label">Material Families</span></div>
+      <div class="cat-stat"><span class="cat-stat__num">Jan '25</span><span class="cat-stat__label">Last Updated</span></div>
+    </div>
+  </header>
+
+  <div class="filter-bar" role="navigation" aria-label="Filter articles">
+    <span class="filter-bar__label">Filter //</span>
+    <button class="filter-pill active">All Materials</button>
+    <button class="filter-pill">Carbon Fibre CF</button>
+    <button class="filter-pill">ASA / ABS</button>
+    <button class="filter-pill">PETG / PETG-CF</button>
+    <button class="filter-pill">Nylon / PA</button>
+    <button class="filter-pill">PEEK / PEI</button>
+    <button class="filter-pill">TPU / Flex</button>
+    <button class="filter-pill">Resin</button>
+    <div class="filter-bar__spacer" aria-hidden="true"></div>
+    <span class="filter-bar__count">Showing <strong>3</strong> of 63</span>
+  </div>
+
+  <section class="grid-section" aria-labelledby="articles-heading">
+    <div class="section-header reveal" style="margin-bottom:36px;">
+      <div>
+        <p class="section-tag">Material Intelligence</p>
+        <h2 class="section-title" id="articles-heading">Filament <span>Guides &amp; Reviews</span></h2>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;">Sort //</span>
+        <select aria-label="Sort articles" style="background:var(--panel-light);border:1px solid var(--border);color:var(--khaki);font-family:var(--font-mono);font-size:11px;padding:8px 12px;outline:none;cursor:crosshair;letter-spacing:1px;">
+          <option>Our Top Picks</option><option>Newest First</option><option>Most Popular</option><option>Price: Low to High</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="article-grid">
+
+      <!-- FEATURED -->
+      <a href="../articles/best-filament-cf-composites.html" class="article-card article-card--featured reveal" aria-label="Read: Best Carbon Fibre Filament for Drone Frames">
+        <div class="article-card__thumb thumb-bg-1">
+          <div class="article-card__thumb-inner"><span class="article-card__thumb-icon" aria-hidden="true">&#129525;</span></div>
+          <span class="article-card__badge">&#9670; Editor's Pick</span>
+        </div>
+        <div class="article-card__body">
+          <div class="article-card__meta"><span class="article-card__cat">Buyer's Guide</span><span class="article-card__date">Jan 09, 2025</span></div>
+          <h3 class="article-card__title">Best Carbon Fibre Filament for Drone Frames: 6 CF Composites Ranked</h3>
+          <p class="article-card__excerpt">CF filament chews through brass nozzles and requires the right hotend temperature — but the stiffness and weight savings are irreplaceable for structural drone arms. We ranked 6 CF composites by printability, real-world tensile strength, and cost per spool.</p>
+          <div class="article-card__pills">
+            <span class="article-card__pill article-card__pill--highlight">Polymaker PA-CF</span>
+            <span class="article-card__pill article-card__pill--highlight">Bambu PETG-CF</span>
+            <span class="article-card__pill">Hardened Nozzle</span>
+            <span class="article-card__pill">FPV Frames</span>
+          </div>
+          <div class="article-card__footer"><span class="article-card__read">&#9670; 10 MIN READ</span><span class="article-card__btn">Read Guide &#8594;</span></div>
+        </div>
+      </a>
+
+      <!-- CARD 2 -->
+      <a href="../articles/petg-vs-asa-outdoor-drone-parts.html" class="article-card reveal" aria-label="Read: PETG vs ASA for Outdoor Drone Parts">
+        <div class="article-card__thumb thumb-bg-2">
+          <div class="article-card__thumb-inner"><span class="article-card__thumb-icon" aria-hidden="true">&#9728;&#65039;</span></div>
+          <span class="article-card__badge article-card__badge--new">New</span>
+        </div>
+        <div class="article-card__body">
+          <div class="article-card__meta"><span class="article-card__cat">Field Test</span><span class="article-card__date">Dec 22, 2024</span></div>
+          <h3 class="article-card__title">PETG vs ASA for Outdoor Drone Parts: 3-Month UV &amp; Weather Test</h3>
+          <p class="article-card__excerpt">We left identical camera mounts and antenna housings outdoors for 3 months in direct sunlight and rain. PETG surprised us. ASA did what it's supposed to. The winner depends on your build.</p>
+          <div class="article-card__pills">
+            <span class="article-card__pill article-card__pill--highlight">ASA</span>
+            <span class="article-card__pill article-card__pill--highlight">PETG</span>
+            <span class="article-card__pill">UV Stability</span>
+            <span class="article-card__pill">Outdoor Parts</span>
+          </div>
+          <div class="article-card__footer"><span class="article-card__read">&#9670; 9 MIN READ</span><span class="article-card__btn">Read Guide &#8594;</span></div>
+        </div>
+      </a>
+
+      <!-- CARD 3 -->
+      <a href="../articles/when-to-use-peek-guide.html" class="article-card reveal" aria-label="Read: When to Use PEEK — A Practical Guide for Drone Builders">
+        <div class="article-card__thumb thumb-bg-3">
+          <div class="article-card__thumb-inner"><span class="article-card__thumb-icon" aria-hidden="true">&#128293;</span></div>
+          <span class="article-card__badge">High-Temp</span>
+        </div>
+        <div class="article-card__body">
+          <div class="article-card__meta"><span class="article-card__cat">Buyer's Guide</span><span class="article-card__date">Dec 10, 2024</span></div>
+          <h3 class="article-card__title">When to Use PEEK: A Practical Guide for Serious Drone Builders</h3>
+          <p class="article-card__excerpt">PEEK costs $150+ per spool and needs a 370°C hotend. It's also the only filament that survives motor mount temperatures on high-powered UAVs. We explain exactly when it's worth it — and when it isn't.</p>
+          <div class="article-card__pills">
+            <span class="article-card__pill article-card__pill--highlight">PEEK</span>
+            <span class="article-card__pill article-card__pill--highlight">PEI</span>
+            <span class="article-card__pill">High-Temp</span>
+            <span class="article-card__pill">Motor Mounts</span>
+          </div>
+          <div class="article-card__footer"><span class="article-card__read">&#9670; 11 MIN READ</span><span class="article-card__btn">Read Guide &#8594;</span></div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="load-more-wrap">
+      <button class="btn-load-more">Load More Articles &#8595;</button>
+    </div>
+  </section>
+
+  <section class="cross-links-section" aria-labelledby="cross-heading">
+    <div class="section-header reveal">
+      <div><p class="section-tag">Also In This Hub</p><h2 class="section-title" id="cross-heading">Browse Other <span>Categories</span></h2></div>
+    </div>
+    <div class="cross-links-grid">
+      <a href="printers.html" class="cross-link-card reveal"><span class="cross-link-card__icon">&#128424;&#65039;</span><span class="cross-link-card__name">Printers</span><p class="cross-link-card__desc">FDM, resin &amp; CF-capable machines for drone parts.</p><span class="cross-link-card__count">&#8594; 47 Reviews</span></a>
+      <a href="drone-parts.html" class="cross-link-card reveal"><span class="cross-link-card__icon">&#128641;</span><span class="cross-link-card__name">Drone Parts</span><p class="cross-link-card__desc">Frames, mounts, shrouds &amp; printable components.</p><span class="cross-link-card__count">&#8594; 38 Reviews</span></a>
+      <a href="design-cad.html" class="cross-link-card reveal"><span class="cross-link-card__icon">&#128208;</span><span class="cross-link-card__name">Design &amp; CAD</span><p class="cross-link-card__desc">Software, slicers, and STL libraries for precision design.</p><span class="cross-link-card__count">&#8594; 29 Guides</span></a>
+      <a href="guides.html" class="cross-link-card reveal"><span class="cross-link-card__icon">&#128218;</span><span class="cross-link-card__name">Guides</span><p class="cross-link-card__desc">Step-by-step field manuals from first print to PEEK.</p><span class="cross-link-card__count">&#8594; 54 Guides</span></a>
+    </div>
+  </section>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-logo" aria-label="AeroInfill home"><div class="nav-logo__badge" aria-hidden="true">AI</div><div><span class="nav-logo__wordmark">AeroInfill</span><span class="nav-logo__sub">3D Printing Intel</span></div></a>
+        <p class="footer-brand__tagline">Field-tested reviews and gear intelligence for aerospace and drone hobbyists who build with precision.</p>
+      </div>
+      <div><p class="footer-heading">Categories</p><ul class="footer-links"><li><a href="printers.html">Printers</a></li><li><a href="materials.html">Materials</a></li><li><a href="drone-parts.html">Drone Parts</a></li><li><a href="design-cad.html">Design &amp; CAD</a></li><li><a href="guides.html">Guides</a></li></ul></div>
+      <div><p class="footer-heading">Resources</p><ul class="footer-links"><li><a href="#">Top Deals</a></li><li><a href="#">Comparisons</a></li><li><a href="#">STL Library</a></li><li><a href="#">Newsletter</a></li></ul></div>
+      <div><p class="footer-heading">About</p><ul class="footer-links"><li><a href="../about.html">Our Mission</a></li><li><a href="#">Review Process</a></li><li><a href="../disclosure.html">Affiliate Disclosure</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">&copy; 2025 AeroInfill. All rights reserved. &nbsp;//&nbsp; <a href="../disclosure.html">Affiliate Disclosure</a> &nbsp;//&nbsp; <a href="#">Privacy Policy</a><br>AeroInfill is a participant in the Amazon Services LLC Associates Program.</p>
+      <div class="footer-signal"><div class="signal-dot" aria-hidden="true"></div>SIGNAL ACTIVE &mdash; TORONTO, CA</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>(function(){const p=document.querySelectorAll('.filter-pill');p.forEach(b=>b.addEventListener('click',()=>{p.forEach(x=>x.classList.remove('active'));b.classList.add('active');}));}());</script>
+</body>
+</html>

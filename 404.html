@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Target Not Found | AeroInfill</title>
+  <meta name="description" content="The page you're looking for doesn't exist or has moved." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <style>
+    .error-page {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: calc(var(--nav-height) + 60px) var(--content-pad) 80px;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .error-page__bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 70% at 50% 40%, rgba(74,82,64,0.20) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 90%, rgba(212,135,10,0.06) 0%, transparent 60%),
+        var(--black);
+      z-index: -1;
+    }
+    .error-page__watermark {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-display);
+      font-size: clamp(160px, 30vw, 380px);
+      color: rgba(212,135,10,0.04);
+      letter-spacing: 8px;
+      pointer-events: none;
+      line-height: 1;
+      white-space: nowrap;
+      z-index: -1;
+    }
+    .error-code {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: var(--amber);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      animation: fadeUp 0.6s ease both;
+    }
+    .error-code::before {
+      content: '';
+      display: inline-block;
+      width: 36px;
+      height: 1px;
+      background: var(--amber);
+    }
+    .error-code::after {
+      content: '';
+      display: inline-block;
+      width: 36px;
+      height: 1px;
+      background: var(--amber);
+    }
+    .error-num {
+      font-family: var(--font-display);
+      font-size: clamp(100px, 18vw, 200px);
+      line-height: 0.9;
+      letter-spacing: 4px;
+      color: var(--off-white);
+      margin-bottom: 16px;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    .error-num span { color: var(--amber-bright); }
+    .error-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 52px);
+      letter-spacing: 3px;
+      color: var(--khaki);
+      margin-bottom: 20px;
+      animation: fadeUp 0.6s 0.15s ease both;
+    }
+    .error-body {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 460px;
+      line-height: 1.8;
+      margin-bottom: 44px;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+    .error-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      animation: fadeUp 0.6s 0.25s ease both;
+      margin-bottom: 60px;
+    }
+    .error-actions .btn-primary {
+      font-family: var(--font-condensed);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--amber);
+      padding: 13px 32px;
+      text-decoration: none;
+      cursor: crosshair;
+      transition: background var(--transition);
+    }
+    .error-actions .btn-primary:hover { background: var(--amber-bright); }
+    .error-actions .btn-ghost {
+      font-family: var(--font-condensed);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--amber);
+      border: 1px solid var(--amber);
+      padding: 13px 32px;
+      text-decoration: none;
+      cursor: crosshair;
+      transition: background var(--transition), color var(--transition);
+    }
+    .error-actions .btn-ghost:hover {
+      background: var(--amber-dim);
+    }
+    .error-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+    .error-nav__label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+    .error-nav a {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--khaki);
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      transition: border-color var(--transition), color var(--transition);
+    }
+    .error-nav a:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+    .error-crosshair {
+      position: absolute;
+      right: 8%;
+      bottom: 12%;
+      width: clamp(120px, 14vw, 200px);
+      height: clamp(120px, 14vw, 200px);
+      opacity: 0.08;
+      pointer-events: none;
+    }
+    .error-crosshair svg { width: 100%; height: 100%; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="AeroInfill home">
+      <div class="nav-logo__badge" aria-hidden="true">AI</div>
+      <div><span class="nav-logo__wordmark">AeroInfill</span><span class="nav-logo__sub">3D Printing Intel</span></div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="category/printers.html">Printers</a></li>
+      <li><a href="category/materials.html">Materials</a></li>
+      <li><a href="category/drone-parts.html">Drones &amp; Parts</a></li>
+      <li><a href="category/guides.html">Guides</a></li>
+      <li><a href="category/design-cad.html">Design &amp; CAD</a></li>
+      <li><a href="#">Deals</a></li>
+    </ul>
+    <a href="category/guides.html" class="nav-cta">Get Intel</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <nav class="nav-drawer" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="category/printers.html">Printers</a>
+    <a href="category/materials.html">Materials</a>
+    <a href="category/drone-parts.html">Drones &amp; Parts</a>
+    <a href="category/guides.html">Guides</a>
+    <a href="category/design-cad.html">Design &amp; CAD</a>
+    <a href="#">Deals</a>
+    <a href="about.html">About</a>
+    <a href="disclosure.html">Disclosure</a>
+  </nav>
+
+  <main class="error-page" role="main">
+    <div class="error-page__bg" aria-hidden="true"></div>
+    <div class="error-page__watermark" aria-hidden="true">404</div>
+
+    <div class="error-crosshair" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="90" stroke="#d4870a" stroke-width="1"/>
+        <circle cx="100" cy="100" r="60" stroke="#d4870a" stroke-width="0.5"/>
+        <circle cx="100" cy="100" r="30" stroke="#d4870a" stroke-width="0.5"/>
+        <circle cx="100" cy="100" r="4" fill="#d4870a"/>
+        <line x1="0"   y1="100" x2="70"  y2="100" stroke="#d4870a" stroke-width="0.75"/>
+        <line x1="130" y1="100" x2="200" y2="100" stroke="#d4870a" stroke-width="0.75"/>
+        <line x1="100" y1="0"   x2="100" y2="70"  stroke="#d4870a" stroke-width="0.75"/>
+        <line x1="100" y1="130" x2="100" y2="200" stroke="#d4870a" stroke-width="0.75"/>
+        <line x1="10"  y1="10"  x2="22"  y2="22"  stroke="#d4870a" stroke-width="0.5"/>
+        <line x1="178" y1="10"  x2="166" y2="22"  stroke="#d4870a" stroke-width="0.5"/>
+        <line x1="10"  y1="190" x2="22"  y2="178" stroke="#d4870a" stroke-width="0.5"/>
+        <line x1="178" y1="190" x2="166" y2="178" stroke="#d4870a" stroke-width="0.5"/>
+        <text x="108" y="16" font-family="monospace" font-size="9" fill="#d4870a" opacity="0.6">N</text>
+        <text x="108" y="196" font-family="monospace" font-size="9" fill="#d4870a" opacity="0.6">S</text>
+        <text x="4"   y="104" font-family="monospace" font-size="9" fill="#d4870a" opacity="0.6">W</text>
+        <text x="186" y="104" font-family="monospace" font-size="9" fill="#d4870a" opacity="0.6">E</text>
+      </svg>
+    </div>
+
+    <p class="error-code">Error // 404</p>
+    <div class="error-num">4<span>0</span>4</div>
+    <h1 class="error-title">Target Not Found</h1>
+    <p class="error-body">The page you're looking for has gone off-grid — moved, deleted, or never existed. Check the URL or navigate back to base.</p>
+
+    <div class="error-actions">
+      <a href="index.html" class="btn-primary">Return to Base &rarr;</a>
+      <a href="category/guides.html" class="btn-ghost">Browse Guides</a>
+    </div>
+
+    <div class="error-nav">
+      <p class="error-nav__label">Or jump to a category</p>
+      <a href="category/printers.html">Printers</a>
+      <a href="category/materials.html">Materials</a>
+      <a href="category/drone-parts.html">Drone Parts</a>
+      <a href="category/design-cad.html">Design &amp; CAD</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="AeroInfill home"><div class="nav-logo__badge" aria-hidden="true">AI</div><div><span class="nav-logo__wordmark">AeroInfill</span><span class="nav-logo__sub">3D Printing Intel</span></div></a>
+        <p class="footer-brand__tagline">Field-tested reviews and gear intelligence for aerospace and drone hobbyists who build with precision.</p>
+      </div>
+      <div><p class="footer-heading">Categories</p><ul class="footer-links"><li><a href="category/printers.html">Printers</a></li><li><a href="category/materials.html">Materials</a></li><li><a href="category/drone-parts.html">Drone Parts</a></li><li><a href="category/design-cad.html">Design &amp; CAD</a></li><li><a href="category/guides.html">Guides</a></li></ul></div>
+      <div><p class="footer-heading">Resources</p><ul class="footer-links"><li><a href="#">Top Deals</a></li><li><a href="#">Comparisons</a></li><li><a href="#">STL Library</a></li><li><a href="#">Newsletter</a></li></ul></div>
+      <div><p class="footer-heading">About</p><ul class="footer-links"><li><a href="about.html">Our Mission</a></li><li><a href="review-process.html">Review Process</a></li><li><a href="disclosure.html">Affiliate Disclosure</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">&copy; 2025 AeroInfill. All rights reserved. &nbsp;//&nbsp; <a href="disclosure.html">Affiliate Disclosure</a> &nbsp;//&nbsp; <a href="#">Privacy Policy</a><br>AeroInfill is a participant in the Amazon Services LLC Associates Program.</p>
+      <div class="footer-signal"><div class="signal-dot" aria-hidden="true"></div>SIGNAL ACTIVE &mdash; TORONTO, CA</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

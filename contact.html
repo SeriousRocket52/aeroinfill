@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — AeroInfill</title>
+  <meta name="description" content="Get in touch with AeroInfill. Questions about reviews, corrections, press enquiries, and partnership requests." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://SeriousRocket52.github.io/aeroinfill/contact.html" />
+  <meta property="og:title" content="Contact — AeroInfill" />
+  <meta property="og:description" content="Get in touch with AeroInfill — corrections, questions, press, and partnership enquiries." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <style>
+    .page-hero{position:relative;z-index:1;padding:calc(var(--nav-height) + 64px) var(--content-pad) 64px;border-bottom:1px solid var(--border);overflow:hidden;}
+    .page-hero__bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 90% at 100% 50%,rgba(74,82,64,0.18) 0%,transparent 65%),radial-gradient(ellipse 40% 50% at 0% 80%,rgba(212,135,10,0.06) 0%,transparent 60%),var(--black);z-index:-1;}
+    .page-hero__watermark{position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-family:var(--font-display);font-size:clamp(60px,10vw,150px);color:rgba(212,135,10,0.04);letter-spacing:4px;pointer-events:none;white-space:nowrap;line-height:1;}
+    .page-hero__breadcrumb{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:24px;}
+    .page-hero__breadcrumb a{color:var(--amber);text-decoration:none;}
+    .page-hero__breadcrumb a:hover{text-decoration:underline;}
+    .page-hero__tag{font-family:var(--font-mono);font-size:10px;letter-spacing:4px;color:var(--amber);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:16px;animation:fadeUp 0.7s ease both;}
+    .page-hero__tag::before{content:'';display:inline-block;width:36px;height:1px;background:var(--amber);}
+    .page-hero__title{font-family:var(--font-display);font-size:clamp(52px,8vw,110px);line-height:0.95;letter-spacing:2px;color:var(--off-white);max-width:760px;margin-bottom:20px;animation:fadeUp 0.7s 0.1s ease both;}
+    .page-hero__title span{color:var(--amber-bright);}
+    .page-hero__lede{font-size:17px;font-weight:300;color:var(--khaki);max-width:600px;line-height:1.8;animation:fadeUp 0.7s 0.2s ease both;}
+    .page-content{max-width:var(--max-width);margin:0 auto;padding:64px var(--content-pad) 96px;display:grid;grid-template-columns:1fr 280px;gap:64px;align-items:start;}
+    .page-body{min-width:0;}
+    .prose-section{margin-bottom:56px;}
+    .prose-section:last-child{margin-bottom:0;}
+    .prose-section__tag{font-family:var(--font-mono);font-size:9px;letter-spacing:3px;color:var(--amber);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+    .prose-section__tag::before{content:'//';color:var(--text-muted);}
+    .prose-section__heading{font-family:var(--font-display);font-size:clamp(32px,4vw,52px);letter-spacing:2px;color:var(--off-white);line-height:1;margin-bottom:20px;}
+    .prose-section__heading span{color:var(--amber-bright);}
+    .prose-section p{font-size:16px;font-weight:300;color:var(--khaki-light);line-height:1.85;margin-bottom:18px;}
+    .prose-section p strong{font-weight:600;color:var(--off-white);}
+    .prose-section__divider{height:1px;background:linear-gradient(90deg,var(--amber),transparent);margin-bottom:56px;opacity:0.3;}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:24px 0;}
+    .contact-card{background:var(--panel-light);border:1px solid var(--border);padding:28px 24px;position:relative;overflow:hidden;}
+    .contact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform 0.35s ease;}
+    .contact-card:hover::before{transform:scaleX(1);}
+    .contact-card__icon{font-size:28px;line-height:1;margin-bottom:14px;}
+    .contact-card__title{font-family:var(--font-condensed);font-size:18px;font-weight:700;letter-spacing:1px;color:var(--off-white);margin-bottom:10px;}
+    .contact-card p{font-size:13px;color:var(--khaki);line-height:1.65;margin-bottom:14px;}
+    .contact-card a{font-family:var(--font-condensed);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--black);background:var(--amber);padding:9px 18px;text-decoration:none;cursor:crosshair;transition:background var(--transition);display:inline-block;}
+    .contact-card a:hover{background:var(--amber-bright);}
+    .contact-form{background:var(--panel-light);border:1px solid var(--border);padding:36px;}
+    .contact-form__heading{font-family:var(--font-display);font-size:32px;letter-spacing:2px;color:var(--off-white);margin-bottom:8px;}
+    .contact-form__sub{font-family:var(--font-mono);font-size:10px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:32px;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+    .form-field{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+    .form-field label{font-family:var(--font-mono);font-size:9px;letter-spacing:3px;color:var(--amber);text-transform:uppercase;}
+    .form-field input,.form-field select,.form-field textarea{background:var(--panel);border:1px solid var(--border);color:var(--khaki-light);font-family:var(--font-mono);font-size:13px;padding:12px 14px;outline:none;transition:border-color var(--transition);letter-spacing:0.5px;width:100%;box-sizing:border-box;}
+    .form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--amber);}
+    .form-field textarea{resize:vertical;min-height:140px;line-height:1.6;}
+    .form-field select{cursor:crosshair;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23d4870a' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+    .form-submit{font-family:var(--font-condensed);font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--black);background:var(--amber);border:none;padding:14px 40px;cursor:crosshair;transition:background var(--transition);display:inline-flex;align-items:center;gap:10px;margin-top:8px;}
+    .form-submit:hover{background:var(--amber-bright);}
+    .form-note{font-family:var(--font-mono);font-size:9px;letter-spacing:1px;color:var(--text-muted);margin-top:16px;line-height:1.6;}
+    .page-sidebar{position:sticky;top:calc(var(--nav-height) + 24px);display:flex;flex-direction:column;gap:16px;}
+    .sidebar-card{background:var(--panel-light);border:1px solid var(--border);padding:24px;}
+    .sidebar-card__heading{font-family:var(--font-mono);font-size:9px;letter-spacing:3px;color:var(--amber);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+    .sidebar-card__heading::before{content:'//';color:var(--text-muted);}
+    .sidebar-card p{font-size:13px;color:var(--khaki);line-height:1.65;margin-bottom:14px;}
+    .sidebar-card p:last-child{margin-bottom:0;}
+    .sidebar-card a{color:var(--amber);text-decoration:underline;text-underline-offset:2px;}
+    .sidebar-nav{display:flex;flex-direction:column;gap:2px;}
+    .sidebar-nav a{font-family:var(--font-condensed);font-size:13px;font-weight:600;letter-spacing:1px;color:var(--khaki);text-decoration:none;padding:10px 12px;border:1px solid transparent;transition:all var(--transition);display:flex;align-items:center;gap:8px;}
+    .sidebar-nav a:hover{color:var(--amber-bright);border-color:var(--border);background:rgba(212,135,10,0.04);}
+    .sidebar-nav a.active{color:var(--amber-bright);border-color:var(--amber);background:rgba(212,135,10,0.07);}
+    @media(max-width:1024px){.page-content{grid-template-columns:1fr}.page-sidebar{position:static;order:-1}}
+    @media(max-width:680px){.contact-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.contact-form{padding:24px 20px}}
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="AeroInfill home">
+      <div class="nav-logo__badge" aria-hidden="true">AI</div>
+      <div><span class="nav-logo__wordmark">AeroInfill</span><span class="nav-logo__sub">3D Printing Intel</span></div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="category/printers.html">Printers</a></li>
+      <li><a href="category/materials.html">Materials</a></li>
+      <li><a href="category/drone-parts.html">Drones &amp; Parts</a></li>
+      <li><a href="category/guides.html">Guides</a></li>
+      <li><a href="category/design-cad.html">Design &amp; CAD</a></li>
+      <li><a href="#">Deals</a></li>
+    </ul>
+    <a href="category/guides.html" class="nav-cta">Get Intel</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <nav class="nav-drawer" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="category/printers.html">Printers</a>
+    <a href="category/materials.html">Materials</a>
+    <a href="category/drone-parts.html">Drones &amp; Parts</a>
+    <a href="category/guides.html">Guides</a>
+    <a href="category/design-cad.html">Design &amp; CAD</a>
+    <a href="#">Deals</a>
+    <a href="about.html">About</a>
+    <a href="disclosure.html">Disclosure</a>
+  </nav>
+
+  <header class="page-hero">
+    <div class="page-hero__bg" aria-hidden="true"></div>
+    <div class="page-hero__watermark" aria-hidden="true">CONTACT</div>
+    <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a><span>&#8250;</span><span aria-current="page">Contact</span>
+    </nav>
+    <p class="page-hero__tag">AeroInfill // Contact</p>
+    <h1 class="page-hero__title">Get In <span>Touch</span></h1>
+    <p class="page-hero__lede">Questions about a review, spotted an error, want to pitch a product for testing, or just want to talk drone builds? Use the form below or reach out directly.</p>
+  </header>
+
+  <div class="page-content">
+    <main class="page-body">
+
+      <div class="prose-section reveal" id="reasons">
+        <p class="prose-section__tag">What We Can Help With</p>
+        <h2 class="prose-section__heading">Reasons to <span>Reach Out</span></h2>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-card__icon">&#9998;</div>
+            <div class="contact-card__title">Corrections &amp; Errors</div>
+            <p>Spotted something factually wrong in one of our reviews or guides? We want to know. We take accuracy seriously and correct errors promptly when verified.</p>
+            <a href="#contact-form">Send a Correction</a>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card__icon">&#128230;</div>
+            <div class="contact-card__title">Product Submissions</div>
+            <p>Manufacturer or PR representative with a product you'd like us to review? We accept test samples in relevant categories. Note: samples do not guarantee coverage.</p>
+            <a href="#contact-form">Submit a Product</a>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card__icon">&#128240;</div>
+            <div class="contact-card__title">Press &amp; Media</div>
+            <p>Media enquiries, interview requests, and guest contribution proposals. We occasionally feature expert guest contributors on technical topics.</p>
+            <a href="#contact-form">Press Enquiry</a>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card__icon">&#128172;</div>
+            <div class="contact-card__title">General Questions</div>
+            <p>Questions about our methodology, affiliate policies, or anything else. If it's a question we hear often, we'll add the answer to our FAQ.</p>
+            <a href="#contact-form">Ask a Question</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="prose-section__divider" aria-hidden="true"></div>
+
+      <div class="prose-section reveal" id="contact-form">
+        <p class="prose-section__tag">Direct Message</p>
+        <h2 class="prose-section__heading">Send a <span>Message</span></h2>
+        <div class="contact-form">
+          <p class="contact-form__heading">SIGNAL IN</p>
+          <p class="contact-form__sub">// Message AeroInfill directly</p>
+          <form action="#" method="post" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="contact-name">Your Name</label>
+                <input type="text" id="contact-name" name="name" placeholder="Callsign or full name" autocomplete="name" required />
+              </div>
+              <div class="form-field">
+                <label for="contact-email">Email Address</label>
+                <input type="email" id="contact-email" name="email" placeholder="you@example.com" autocomplete="email" required />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="contact-subject">Subject</label>
+              <select id="contact-subject" name="subject" required>
+                <option value="" disabled selected>Select a topic</option>
+                <option value="correction">Correction / Error Report</option>
+                <option value="product">Product Submission</option>
+                <option value="press">Press / Media Enquiry</option>
+                <option value="question">General Question</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" placeholder="Include any relevant links, model numbers, or context..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Message &#8594;</button>
+            <p class="form-note">// We aim to respond within 3 business days. Product submissions may take longer to assess. We do not respond to link exchange or SEO requests.</p>
+          </form>
+        </div>
+      </div>
+
+    </main>
+
+    <aside class="page-sidebar" aria-label="Page sidebar">
+      <nav class="sidebar-card" aria-label="About section navigation">
+        <p class="sidebar-card__heading">In This Section</p>
+        <div class="sidebar-nav">
+          <a href="about.html">&#9670; Our Mission</a>
+          <a href="review-process.html">&#9670; Review Process</a>
+          <a href="disclosure.html">&#9670; Affiliate Disclosure</a>
+          <a href="contact.html" class="active">&#9670; Contact</a>
+        </div>
+      </nav>
+      <div class="sidebar-card">
+        <p class="sidebar-card__heading">Response Time</p>
+        <p>We aim to respond to all messages within <strong style="color:var(--off-white);">3 business days</strong>. Product review requests may take up to 2 weeks to assess.</p>
+        <p>For urgent corrections to published reviews, we typically respond within 24 hours.</p>
+      </div>
+      <div class="sidebar-card">
+        <p class="sidebar-card__heading">Before You Write</p>
+        <p>Review our <a href="disclosure.html">Affiliate Disclosure</a> and <a href="review-process.html">Review Process</a> — most questions about how we operate are answered there.</p>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="AeroInfill home"><div class="nav-logo__badge" aria-hidden="true">AI</div><div><span class="nav-logo__wordmark">AeroInfill</span><span class="nav-logo__sub">3D Printing Intel</span></div></a>
+        <p class="footer-brand__tagline">Field-tested reviews and gear intelligence for aerospace and drone hobbyists who build with precision.</p>
+      </div>
+      <div><p class="footer-heading">Categories</p><ul class="footer-links"><li><a href="category/printers.html">Printers</a></li><li><a href="category/materials.html">Materials</a></li><li><a href="category/drone-parts.html">Drone Parts</a></li><li><a href="category/design-cad.html">Design &amp; CAD</a></li><li><a href="category/guides.html">Guides</a></li></ul></div>
+      <div><p class="footer-heading">Resources</p><ul class="footer-links"><li><a href="#">Top Deals</a></li><li><a href="#">Comparisons</a></li><li><a href="#">STL Library</a></li><li><a href="#">Newsletter</a></li></ul></div>
+      <div><p class="footer-heading">About</p><ul class="footer-links"><li><a href="about.html">Our Mission</a></li><li><a href="review-process.html">Review Process</a></li><li><a href="disclosure.html">Affiliate Disclosure</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">&copy; 2025 AeroInfill. All rights reserved. &nbsp;//&nbsp; <a href="disclosure.html">Affiliate Disclosure</a> &nbsp;//&nbsp; <a href="#">Privacy Policy</a><br>AeroInfill is a participant in the Amazon Services LLC Associates Program.</p>
+      <div class="footer-signal"><div class="signal-dot" aria-hidden="true"></div>SIGNAL ACTIVE &mdash; TORONTO, CA</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FC Standoffs, GPS Masts &amp; Antenna Mounts: The 3D Print Guide for FPV Builds (2026) &mdash; AeroInfill</title>
+  <meta name="description" content="Flight controller standoffs, GPS masts, and antenna protection tubes are three of the most impactful printable parts on any FPV drone. Here is the complete print guide with tested STL recommendations." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://SeriousRocket52.github.io/aeroinfill/articles/fc-standoffs-gps-mounts-guide.html" />
+  <meta property="og:title" content="FC Standoffs, GPS Masts and Antenna Mounts Print Guide &mdash; AeroInfill" />
+  <meta property="og:description" content="Flight controller standoffs, GPS masts, and antenna protection tubes are three of the most impactful printable parts on any FPV drone. Here is the complete print guide with tested STL recommendations." />
+  <meta property="og:type" content="article" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"FC Standoffs, GPS Masts and Antenna Mounts Print Guide","description":"Flight controller standoffs, GPS masts, and antenna protection tubes are three of the most impactful printable parts on any FPV drone. Here is the complete print guide with tested STL recommendations.","author":{"@type":"Organization","name":"AeroInfill"},"publisher":{"@type":"Organization","name":"AeroInfill"},"datePublished":"2026-04-01","dateModified":"2026-04-01"}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <style>
+    .article-hero{position:relative;z-index:1;padding:calc(var(--nav-height) + 56px) var(--content-pad) 56px;border-bottom:1px solid var(--border);overflow:hidden;}
+    .article-hero__bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 100% at 100% 50%,rgba(74,82,64,0.18) 0%,transparent 70%),var(--black);z-index:-1;}
+    .article-hero__watermark{position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-family:var(--font-display);font-size:clamp(80px,13vw,180px);color:rgba(212,135,10,0.04);letter-spacing:4px;pointer-events:none;white-space:nowrap;line-height:1;}
+    .article-hero__breadcrumb{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:24px;}
+    .article-hero__breadcrumb a{color:var(--amber);text-decoration:none;}
+    .article-hero__breadcrumb a:hover{text-decoration:underline;}
+    .article-hero__tag{font-family:var(--font-mono);font-size:10px;letter-spacing:4px;color:var(--amber);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:18px;animation:fadeUp 0.7s ease both;}
+    .article-hero__tag::before{content:'';display:inline-block;width:36px;height:1px;background:var(--amber);}
+    .article-hero__title{font-family:var(--font-display);font-size:clamp(42px,6vw,80px);line-height:0.95;letter-spacing:2px;color:var(--off-white);max-width:820px;margin-bottom:22px;animation:fadeUp 0.7s 0.1s ease both;}
+    .article-hero__title span{color:var(--amber-bright);}
+    .article-hero__meta{display:flex;flex-wrap:wrap;gap:20px;margin-bottom:24px;animation:fadeUp 0.7s 0.2s ease both;}
+    .meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;display:flex;align-items:center;gap:6px;}
+    .meta-item__dot{width:5px;height:5px;border-radius:50%;background:var(--amber);flex-shrink:0;}
+    .article-hero__lede{font-size:18px;font-weight:400;color:var(--khaki);max-width:680px;line-height:1.75;animation:fadeUp 0.7s 0.25s ease both;border-left:2px solid var(--amber);padding-left:20px;}
+    .article-layout{position:relative;z-index:1;max-width:var(--max-width);margin:0 auto;padding:56px var(--content-pad) 80px;display:grid;grid-template-columns:1fr 300px;gap:56px;align-items:start;}
+    .article-body{min-width:0;}
+    .prose p{font-size:16px;font-weight:300;color:var(--khaki-light);line-height:1.85;margin-bottom:20px;}
+    .prose p strong{font-weight:600;color:var(--off-white);}
+    .prose p em{font-style:italic;color:var(--khaki);}
+    .prose h2{font-family:var(--font-display);font-size:clamp(32px,4vw,48px);letter-spacing:2px;color:var(--off-white);line-height:1;margin:48px 0 18px;padding-top:16px;border-top:1px solid var(--border);display:flex;align-items:center;gap:14px;}
+    .prose h2::before{content:attr(data-num);font-family:var(--font-mono);font-size:11px;letter-spacing:3px;color:var(--amber);white-space:nowrap;}
+    .prose h3{font-family:var(--font-condensed);font-size:20px;font-weight:700;letter-spacing:1px;color:var(--khaki-light);margin:28px 0 12px;}
+    .prose ul{margin:0 0 20px 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;}
+    .prose ul li{font-size:15px;color:var(--khaki);line-height:1.6;padding-left:20px;position:relative;}
+    .prose ul li::before{content:'&#x203a;';position:absolute;left:0;color:var(--amber);font-size:18px;line-height:1.2;}
+    .prose a{color:var(--amber);text-decoration:underline;text-underline-offset:3px;transition:color var(--transition);}
+    .prose a:hover{color:var(--amber-bright);}
+    .verdict-box{background:var(--panel-light);border:1px solid var(--amber);border-left:3px solid var(--amber);padding:24px 28px;margin:28px 0;}
+    .verdict-box__label{font-family:var(--font-mono);font-size:9px;letter-spacing:3px;color:var(--amber);text-transform:uppercase;margin-bottom:10px;}
+    .verdict-box p{font-size:15px;color:var(--khaki);line-height:1.7;margin:0;}
+    .verdict-box p strong{color:var(--off-white);}
+    .pro-con{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:24px 0;}
+    .pro-con__col{background:var(--panel-light);border:1px solid var(--border);padding:20px;}
+    .pro-con__heading{font-family:var(--font-mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+    .pro-con__heading--pros{color:var(--amber);}
+    .pro-con__heading--cons{color:var(--steel);}
+    .pro-con__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;}
+    .pro-con__list li{font-size:13px;color:var(--khaki);line-height:1.5;padding-left:18px;position:relative;}
+    .pro-con__list--pros li::before{content:'+';position:absolute;left:0;color:var(--amber);font-weight:700;}
+    .pro-con__list--cons li::before{content:'–';position:absolute;left:0;color:var(--steel);font-weight:700;}
+    .article-divider{display:flex;align-items:center;gap:0;margin:48px 0;}
+    .article-divider__line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);}
+    .article-divider__diamond{width:7px;height:7px;border:1px solid var(--amber);transform:rotate(45deg);flex-shrink:0;margin:0 4px;}
+    .rank-badge{display:inline-flex;align-items:center;font-family:var(--font-mono);font-size:9px;letter-spacing:2px;color:var(--black);background:var(--amber);padding:4px 10px;white-space:nowrap;vertical-align:middle;}
+    .article-sidebar{position:sticky;top:calc(var(--nav-height) + 24px);display:flex;flex-direction:column;gap:24px;}
+    .toc-widget{background:var(--panel-light);border:1px solid var(--border);padding:24px;}
+    .toc-widget__heading{font-family:var(--font-mono);font-size:9px;letter-spacing:3px;color:var(--amber);text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+    .toc-widget__heading::before{content:'//';color:var(--text-muted);}
+    .toc-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:2px;}
+    .toc-list a{display:flex;align-items:center;gap:10px;font-family:var(--font-condensed);font-size:13px;font-weight:600;color:var(--khaki);text-decoration:none;padding:8px 10px;border:1px solid transparent;transition:all var(--transition);line-height:1.3;}
+    .toc-list a:hover{color:var(--amber-bright);border-color:var(--border);background:rgba(212,135,10,0.04);}
+    .toc-list a.active{color:var(--amber-bright);border-color:var(--amber);background:rgba(212,135,10,0.07);}
+    .toc-divider{height:1px;background:var(--border);margin:8px 0;}
+    .toc-list__section-label{font-family:var(--font-mono);font-size:8px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;padding:6px 10px 2px;}
+    .sidebar-pick{background:var(--panel-light);border:1px solid var(--amber);padding:22px;display:flex;flex-direction:column;gap:14px;}
+    .sidebar-pick__label{font-family:var(--font-mono);font-size:9px;letter-spacing:3px;color:var(--amber);text-transform:uppercase;}
+    .sidebar-pick__img{height:130px;background:var(--olive-dark);display:flex;align-items:center;justify-content:center;font-size:56px;opacity:0.6;position:relative;overflow:hidden;}
+    .sidebar-pick__img::before,.sidebar-pick__img::after{content:'';position:absolute;width:14px;height:14px;border-color:rgba(212,135,10,0.5);border-style:solid;}
+    .sidebar-pick__img::before{top:8px;left:8px;border-width:1px 0 0 1px;}
+    .sidebar-pick__img::after{bottom:8px;right:8px;border-width:0 1px 1px 0;}
+    .sidebar-pick__name{font-family:var(--font-condensed);font-weight:700;font-size:18px;color:var(--off-white);line-height:1.2;}
+    .sidebar-pick__stars{color:var(--amber);font-size:13px;letter-spacing:2px;}
+    .sidebar-pick__price{font-family:var(--font-display);font-size:32px;color:var(--amber-bright);letter-spacing:1px;}
+    .sidebar-pick__cta{display:block;text-align:center;font-family:var(--font-condensed);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--black);background:#ff9900;padding:12px 16px;text-decoration:none;cursor:crosshair;transition:background var(--transition);}
+    .sidebar-pick__cta:hover{background:#ffac33;}
+    .sidebar-pick__disclaimer{font-family:var(--font-mono);font-size:9px;letter-spacing:1px;color:var(--text-muted);line-height:1.5;text-align:center;}
+    .sidebar-disclosure{background:rgba(212,135,10,0.06);border:1px solid var(--border);padding:16px 18px;}
+    .sidebar-disclosure p{font-family:var(--font-mono);font-size:10px;letter-spacing:1px;color:var(--text-muted);line-height:1.6;}
+    .sidebar-disclosure a{color:var(--amber);}
+    @media(max-width:1024px){.article-layout{grid-template-columns:1fr}.article-sidebar{position:static;order:-1;display:grid;grid-template-columns:1fr 1fr;gap:16px}.toc-widget{grid-column:1/-1}}
+    @media(max-width:640px){.article-sidebar{grid-template-columns:1fr}.pro-con{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="../index.html" class="nav-logo" aria-label="AeroInfill home">
+      <div class="nav-logo__badge" aria-hidden="true">AI</div>
+      <div><span class="nav-logo__wordmark">AeroInfill</span><span class="nav-logo__sub">3D Printing Intel</span></div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="../category/printers.html">Printers</a></li>
+      <li><a href="../category/materials.html">Materials</a></li>
+      <li><a href="../category/drone-parts.html" class="active">Drones &amp; Parts</a></li>
+      <li><a href="../category/guides.html">Guides</a></li>
+      <li><a href="../category/design-cad.html">Design &amp; CAD</a></li>
+      <li><a href="#">Deals</a></li>
+    </ul>
+    <a href="../category/guides.html" class="nav-cta">Get Intel</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <nav class="nav-drawer" aria-label="Mobile navigation">
+    <a href="../index.html">Home</a>
+    <a href="../category/printers.html">Printers</a>
+    <a href="../category/materials.html">Materials</a>
+    <a href="../category/drone-parts.html">Drones &amp; Parts</a>
+    <a href="../category/guides.html">Guides</a>
+    <a href="../category/design-cad.html">Design &amp; CAD</a>
+    <a href="#">Deals</a>
+  </nav>
+  <div class="disclosure-bar">
+    <span aria-hidden="true">&#9888;</span>
+    <p><strong>Affiliate disclosure:</strong> AeroInfill earns a commission on purchases through links on this page, at no extra cost to you. <a href="../disclosure.html">Read our full policy &rarr;</a></p>
+  </div>
+  <header class="article-hero">
+    <div class="article-hero__bg" aria-hidden="true"></div>
+    <div class="article-hero__watermark" aria-hidden="true">DRONE PARTS</div>
+    <nav class="article-hero__breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span>&#8250;</span>
+      <a href="../category/drone-parts.html">Drone Parts</a><span>&#8250;</span>
+      <span aria-current="page">FC Standoffs, GPS Masts and Antenna Mounts Print Guide</span>
+    </nav>
+    <p class="article-hero__tag">CAT-03 // Build Guide</p>
+    <h1 class="article-hero__title">FC Standoffs, GPS Masts &amp; Antenna Mounts: The 3D Print Guide for FPV Builds (2026)</h1>
+    <div class="article-hero__meta">
+      <span class="meta-item"><span class="meta-item__dot" aria-hidden="true"></span>Apr 1, 2026</span>
+      <span class="meta-item"><span class="meta-item__dot" aria-hidden="true"></span>7 Min Read</span>
+      <span class="meta-item"><span class="meta-item__dot" aria-hidden="true"></span>Updated Apr 2026</span>
+    </div>
+    <p class="article-hero__lede">Three of the highest-value printable parts on an FPV drone are not the glamorous ones: FC standoffs, GPS masts, and antenna tubes. Get them right and your electronics are protected, your GPS signal is clean, and your gyro noise floor is lower. Here is the complete guide.</p>
+  </header>
+  <div class="article-layout">
+    <article class="article-body">
+
+      <div class="prose" id="standoffs">
+        <h2 data-num="PART-01 //">Flight Controller Standoffs</h2>
+        <p>Stock M3 aluminium standoffs are rigid — they transmit every motor vibration directly into your FC gyroscope. Replacing them with printed TPU standoffs is one of the most impactful single changes you can make to your tune. <strong>Shore 95A TPU at 8–10mm height</strong> is the standard for most 5-inch builds: soft enough to absorb motor vibration, stiff enough to maintain stack geometry.</p>
+        <p>Print at 30.5mm inner spacing (standard stack dimension) with M3 clearance holes at 3.3mm diameter to account for TPU compression. 4 perimeters, 100% infill for standoffs — you want solid material for load-bearing components.</p>
+      </div>
+      <div class="affiliate-box reveal">
+        <div class="affiliate-box__img-wrap" style="background:linear-gradient(135deg,#1e2820,#283828);">
+          <span style="font-size:100px;opacity:0.32;position:absolute;" aria-hidden="true">&#128300;</span>
+          
+        </div>
+        <div class="affiliate-box__body">
+          <p class="affiliate-box__category">TPU 95A // FC Standoff Material</p>
+          <h3 class="affiliate-box__title">Polymaker TPU95</h3>
+          <div class="affiliate-box__rating">
+            <span class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="affiliate-box__rating-num">4.8/5.0</span>
+          </div>
+          <ul class="affiliate-box__bullets">
+            <li>Best material for FC standoffs — Shore 95A balances isolation and stiffness</li>
+            <li>Print at 100% infill, 4 perimeters, 30.5mm spacing for standard stacks</li>
+            <li>3.3mm M3 clearance holes to account for TPU compression</li>
+            <li>Set print speed to 25 mm/s for best dimensional accuracy on small standoffs</li>
+          </ul>
+          <div class="affiliate-box__price-row">
+            <div>
+              <span class="affiliate-box__price">$26</span>
+              
+            </div>
+            <a href="https://www.amazon.com/dp/B08T18GSGX?tag=YOUR-TAG-20" class="affiliate-box__cta affiliate-box__cta--amazon" target="_blank" rel="nofollow noopener sponsored">Check Price on Amazon</a>
+          </div>
+          <p class="affiliate-box__disclaimer">&#9888; Affiliate link &mdash; we earn a commission at no extra cost to you. <a href="../disclosure.html">Disclosure &rarr;</a></p>
+        </div>
+      </div>
+      <div class="article-divider"><div class="article-divider__line"></div><div class="article-divider__diamond"></div><div class="article-divider__line"></div></div>
+      <div class="prose" id="gps">
+        <h2 data-num="PART-02 //">GPS Mast</h2>
+        <p>A GPS mast lifts your GPS module 40–60mm above the main electronics — critical for EMI isolation from ESCs and motors, which produce significant electrical interference at the frequencies GPS receivers use. A properly positioned GPS module can cut time-to-first-fix from 90 seconds to under 15. <strong>Print your GPS mast in PETG or ASA</strong> — stiff material, no flexing under G-forces.</p>
+        <p>The key design parameter: route the GPS cable inside the mast tube if possible — it acts as a shielded conduit. Use M3 hardware at the base with vibration-isolating rubber o-rings between the mast foot and the frame plate.</p>
+      </div>
+
+      <div class="affiliate-box reveal">
+        <div class="affiliate-box__img-wrap" style="background:linear-gradient(135deg,#1a1e28,#242838);">
+          <span style="font-size:100px;opacity:0.32;position:absolute;" aria-hidden="true">&#128204;</span>
+          
+        </div>
+        <div class="affiliate-box__body">
+          <p class="affiliate-box__category">PETG // GPS Mast Material</p>
+          <h3 class="affiliate-box__title">Bambu Lab PETG</h3>
+          <div class="affiliate-box__rating">
+            <span class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="affiliate-box__rating-num">4.8/5.0</span>
+          </div>
+          <ul class="affiliate-box__bullets">
+            <li>Best rigidity for GPS mast — no flex under G-forces</li>
+            <li>Print GPS mast in PETG or ASA — not TPU (needs rigidity)</li>
+            <li>40–60mm mast height for adequate EMI separation from electronics</li>
+            <li>Include cable routing channel in mast design — acts as EMI shielding</li>
+          </ul>
+          <div class="affiliate-box__price-row">
+            <div>
+              <span class="affiliate-box__price">$25</span>
+              
+            </div>
+            <a href="https://www.amazon.com/dp/B0BQ4ZHY98?tag=YOUR-TAG-20" class="affiliate-box__cta affiliate-box__cta--amazon" target="_blank" rel="nofollow noopener sponsored">Check Price on Amazon</a>
+          </div>
+          <p class="affiliate-box__disclaimer">&#9888; Affiliate link &mdash; we earn a commission at no extra cost to you. <a href="../disclosure.html">Disclosure &rarr;</a></p>
+        </div>
+      </div>
+      <div class="article-divider"><div class="article-divider__line"></div><div class="article-divider__diamond"></div><div class="article-divider__line"></div></div>
+      <div class="prose" id="antenna">
+        <h2 data-num="PART-03 //">Antenna Protection Tubes</h2>
+        <p>ELRS and TBS Crossfire receiver antennas are fragile — bare wire antennas get snagged, bent, or broken in crashes. Printed ASA antenna tubes protect the antenna wire and maintain the critical 90° orientation that maximises radio signal reception. <strong>Print in ASA for UV stability</strong> — antenna tubes live in the most UV-exposed position on the frame.</p>
+      </div>
+
+      <div class="affiliate-box reveal">
+        <div class="affiliate-box__img-wrap" style="background:linear-gradient(135deg,#28201a,#3a2e1e);">
+          <span style="font-size:100px;opacity:0.32;position:absolute;" aria-hidden="true">&#128225;</span>
+          
+        </div>
+        <div class="affiliate-box__body">
+          <p class="affiliate-box__category">ASA // Antenna Tube Material</p>
+          <h3 class="affiliate-box__title">Polymaker PolyLite ASA</h3>
+          <div class="affiliate-box__rating">
+            <span class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="affiliate-box__rating-num">4.8/5.0</span>
+          </div>
+          <ul class="affiliate-box__bullets">
+            <li>UV-stable ASA for antenna tubes — they live in direct sunlight exposure</li>
+            <li>Print tubes at 3mm OD, 2mm ID for standard ELRS/TBS antenna wire diameter</li>
+            <li>Two tubes per build — maintain 90° angle between them for omnidirectional coverage</li>
+            <li>Requires enclosed printer for warp-free results</li>
+          </ul>
+          <div class="affiliate-box__price-row">
+            <div>
+              <span class="affiliate-box__price">$24</span>
+              
+            </div>
+            <a href="https://www.amazon.com/dp/B09LY3PVK2?tag=YOUR-TAG-20" class="affiliate-box__cta affiliate-box__cta--amazon" target="_blank" rel="nofollow noopener sponsored">Check Price on Amazon</a>
+          </div>
+          <p class="affiliate-box__disclaimer">&#9888; Affiliate link &mdash; we earn a commission at no extra cost to you. <a href="../disclosure.html">Disclosure &rarr;</a></p>
+        </div>
+      </div>
+      <div class="article-divider"><div class="article-divider__line"></div><div class="article-divider__diamond"></div><div class="article-divider__line"></div></div>
+      <div class="prose" id="materials">
+        <h2 data-num="GUIDE //">Material Quick Reference</h2>
+        <p>FC standoffs: <strong>TPU 95A</strong> for vibration isolation, 100% infill. GPS mast: <strong>PETG or ASA</strong> for rigidity, 40%+ infill. Antenna tubes: <strong>ASA</strong> for UV stability, 100% infill on tube walls. All three parts benefit from 4+ perimeters regardless of infill — perimeter count drives the strength of small printed parts more than infill does.</p>
+        <h3>Related Articles</h3>
+        <ul>
+          <li><a href="best-tpu-vibration-dampening.html">Best TPU for Vibration-Damping Drone Mounts</a></li>
+          <li><a href="fpv-frame-designs-crash-survival.html">FPV Frames That Survive Hard Crashes</a></li>
+        </ul>
+      </div>
+    </article>
+    <aside class="article-sidebar" aria-label="Article sidebar">
+      <nav class="toc-widget" aria-label="Table of contents">
+        <p class="toc-widget__heading">Table of Contents</p>
+        <ol class="toc-list" style="counter-reset:toc-counter;">
+
+          <li class="toc-list__section-label">Components</li>
+          <li><a href="#standoffs">FC Standoffs</a></li>
+          <li><a href="#gps">GPS Mast</a></li>
+          <li><a href="#antenna">Antenna Tubes</a></li>
+          <li class="toc-divider" role="separator" aria-hidden="true"></li>
+          <li><a href="#materials">Material Recommendations</a></li>
+        </ol>
+      </nav>
+
+      <div class="sidebar-pick">
+        <p class="sidebar-pick__label">&#9670; Our Top Pick</p>
+        <div class="sidebar-pick__img" aria-hidden="true">&#128300;</div>
+        <div class="sidebar-pick__name">Polymaker TPU95</div>
+        <div class="sidebar-pick__stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="sidebar-pick__price">$26</div>
+        <a href="https://www.amazon.com/dp/B08T18GSGX?tag=YOUR-TAG-20" class="sidebar-pick__cta" target="_blank" rel="nofollow noopener sponsored">Check Price on Amazon &#8594;</a>
+        <p class="sidebar-pick__disclaimer">&#9888; Affiliate link &mdash; <a href="../disclosure.html">see disclosure</a></p>
+      </div>
+
+      <div class="sidebar-disclosure">
+        <p><strong style="color:var(--amber);">// Affiliate Disclosure</strong><br>AeroInfill earns a commission on purchases made through links on this page at no extra cost to you. <a href="../disclosure.html">Full disclosure &rarr;</a></p>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-logo" aria-label="AeroInfill home"><div class="nav-logo__badge" aria-hidden="true">AI</div><div><span class="nav-logo__wordmark">AeroInfill</span><span class="nav-logo__sub">3D Printing Intel</span></div></a>
+        <p class="footer-brand__tagline">Field-tested reviews and gear intelligence for aerospace and drone hobbyists who build with precision.</p>
+      </div>
+      <div><p class="footer-heading">Categories</p><ul class="footer-links"><li><a href="../category/printers.html">Printers</a></li><li><a href="../category/materials.html">Materials</a></li><li><a href="../category/drone-parts.html">Drone Parts</a></li><li><a href="../category/design-cad.html">Design &amp; CAD</a></li><li><a href="../category/guides.html">Guides</a></li></ul></div>
+      <div><p class="footer-heading">Resources</p><ul class="footer-links"><li><a href="#">Top Deals</a></li><li><a href="#">Comparisons</a></li><li><a href="#">STL Library</a></li><li><a href="#">Newsletter</a></li></ul></div>
+      <div><p class="footer-heading">About</p><ul class="footer-links"><li><a href="../about.html">Our Mission</a></li><li><a href="#">Review Process</a></li><li><a href="../disclosure.html">Affiliate Disclosure</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">&copy; 2026 AeroInfill. All rights reserved. &nbsp;//&nbsp; <a href="../disclosure.html">Affiliate Disclosure</a> &nbsp;//&nbsp; <a href="#">Privacy Policy</a><br>AeroInfill is a participant in the Amazon Services LLC Associates Program.</p>
+      <div class="footer-signal"><div class="signal-dot" aria-hidden="true"></div>SIGNAL ACTIVE &mdash; TORONTO, CA</div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+
+  <script>
+    (function(){
+      const links=document.querySelectorAll('.toc-list a');
+      const ids=['standoffs','gps','antenna','materials'];
+      const sections=ids.map(id=>document.getElementById(id)).filter(Boolean);
+      if(!links.length||!sections.length)return;
+      const obs=new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            links.forEach(l=>l.classList.remove('active'));
+            const a=document.querySelector('.toc-list a[href="#'+e.target.id+'"]');
+            if(a)a.classList.add('active');
+          }
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      sections.forEach(s=>obs.observe(s));
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"Get-ChildItem -Path ''C:\\\\Users\\\\SR52\\\\Documents\\\\aeroinfill'' -Recurse -File | ForEach-Object { \\(Get-Content $_FullName -Raw\\) -replace ''SeriousRocket52'', ''SeriousRocket52'' | Set-Content $_FullName -NoNewline }\")"
+    ]
+  }
+}

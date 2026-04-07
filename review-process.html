@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review Process — How We Test &mdash; AeroInfill</title>
+  <meta name="description" content="How AeroInfill tests printers, filaments, and drone components. Our methodology, scoring criteria, and testing standards — everything we do before publishing a verdict." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://SeriousRocket52.github.io/aeroinfill/review-process.html" />
+  <meta property="og:title" content="Review Process — How We Test &mdash; AeroInfill" />
+  <meta property="og:description" content="Our testing methodology for printers, filaments, and drone components. Field-tested, not spec-sheet reviewed." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <style>
+    .page-hero{position:relative;z-index:1;padding:calc(var(--nav-height) + 64px) var(--content-pad) 64px;border-bottom:1px solid var(--border);overflow:hidden;}
+    .page-hero__bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 90% at 100% 50%,rgba(74,82,64,0.18) 0%,transparent 65%),radial-gradient(ellipse 40% 50% at 0% 80%,rgba(212,135,10,0.06) 0%,transparent 60%),var(--black);z-index:-1;}
+    .page-hero__watermark{position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-family:var(--font-display);font-size:clamp(50px,8vw,120px);color:rgba(212,135,10,0.04);letter-spacing:4px;pointer-events:none;white-space:nowrap;line-height:1;}
+    .page-hero__breadcrumb{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:24px;}
+    .page-hero__breadcrumb a{color:var(--amber);text-decoration:none;}
+    .page-hero__breadcrumb a:hover{text-decoration:underline;}
+    .page-hero__tag{font-family:var(--font-mono);font-size:10px;letter-spacing:4px;color:var(--amber);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:16px;animation:fadeUp 0.7s ease both;}
+    .page-hero__tag::before{content:'';display:inline-block;width:36px;height:1px;background:var(--amber);}
+    .page-hero__title{font-family:var(--font-display);font-size:clamp(52px,8vw,110px);line-height:0.95;letter-spacing:2px;color:var(--off-white);max-width:760px;margin-bottom:20px;animation:fadeUp 0.7s 0.1s ease both;}
+    .page-hero__title span{color:var(--amber-bright);}
+    .page-hero__lede{font-size:17px;font-weight:300;color:var(--khaki);max-width:600px;line-height:1.8;animation:fadeUp 0.7s 0.2s ease both;}
+    .page-content{max-width:var(--max-width);margin:0 auto;padding:64px var(--content-pad) 96px;display:grid;grid-template-columns:1fr 280px;gap:64px;align-items:start;}
+    .page-body{min-width:0;}
+    .prose-section{margin-bottom:56px;}
+    .prose-section:last-child{margin-bottom:0;}
+    .prose-section__tag{font-family:var(--font-mono);font-size:9px;letter-spacing:3px;color:var(--amber);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+    .prose-section__tag::before{content:'//';color:var(--text-muted);}
+    .prose-section__heading{font-family:var(--font-display);font-size:clamp(32px,4vw,52px);letter-spacing:2px;color:var(--off-white);line-height:1;margin-bottom:20px;}
+    .prose-section__heading span{color:var(--amber-bright);}
+    .prose-section p{font-size:16px;font-weight:300;color:var(--khaki-light);line-height:1.85;margin-bottom:18px;}
+    .prose-section p strong{font-weight:600;color:var(--off-white);}
+    .prose-section ul{margin:0 0 18px 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .prose-section ul li{font-size:15px;color:var(--khaki);line-height:1.6;padding-left:22px;position:relative;}
+    .prose-section ul li::before{content:'›';position:absolute;left:0;color:var(--amber);font-size:18px;line-height:1.2;}
+    .prose-section__divider{height:1px;background:linear-gradient(90deg,var(--amber),transparent);margin-bottom:56px;opacity:0.3;}
+    .method-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:24px 0;}
+    .method-card{background:var(--panel-light);border:1px solid var(--border);padding:24px;}
+    .method-card__icon{font-size:28px;margin-bottom:12px;line-height:1;}
+    .method-card__title{font-family:var(--font-condensed);font-size:17px;font-weight:700;color:var(--off-white);margin-bottom:10px;letter-spacing:1px;}
+    .method-card p{font-size:13px;color:var(--khaki);line-height:1.65;margin:0;}
+    .score-table{width:100%;border-collapse:collapse;margin:24px 0;}
+    .score-table th{font-family:var(--font-mono);font-size:9px;letter-spacing:2px;color:var(--amber);text-transform:uppercase;text-align:left;padding:12px 16px;border-bottom:1px solid var(--border);background:var(--panel);}
+    .score-table td{font-size:14px;color:var(--khaki);padding:14px 16px;border-bottom:1px solid rgba(138,155,168,0.1);vertical-align:top;line-height:1.55;}
+    .score-table td:first-child{font-family:var(--font-condensed);font-weight:700;color:var(--off-white);font-size:15px;white-space:nowrap;}
+    .score-table tr:hover td{background:rgba(212,135,10,0.03);}
+    .page-sidebar{position:sticky;top:calc(var(--nav-height) + 24px);display:flex;flex-direction:column;gap:16px;}
+    .sidebar-card{background:var(--panel-light);border:1px solid var(--border);padding:24px;}
+    .sidebar-card__heading{font-family:var(--font-mono);font-size:9px;letter-spacing:3px;color:var(--amber);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+    .sidebar-card__heading::before{content:'//';color:var(--text-muted);}
+    .sidebar-card p{font-size:13px;color:var(--khaki);line-height:1.65;margin-bottom:14px;}
+    .sidebar-card p:last-child{margin-bottom:0;}
+    .sidebar-card a{color:var(--amber);text-decoration:underline;text-underline-offset:2px;}
+    .sidebar-nav{display:flex;flex-direction:column;gap:2px;}
+    .sidebar-nav a{font-family:var(--font-condensed);font-size:13px;font-weight:600;letter-spacing:1px;color:var(--khaki);text-decoration:none;padding:10px 12px;border:1px solid transparent;transition:all var(--transition);display:flex;align-items:center;gap:8px;}
+    .sidebar-nav a:hover{color:var(--amber-bright);border-color:var(--border);background:rgba(212,135,10,0.04);}
+    .sidebar-nav a.active{color:var(--amber-bright);border-color:var(--amber);background:rgba(212,135,10,0.07);}
+    @media(max-width:1024px){.page-content{grid-template-columns:1fr}.page-sidebar{position:static;order:-1}}
+    @media(max-width:680px){.method-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="AeroInfill home">
+      <div class="nav-logo__badge" aria-hidden="true">AI</div>
+      <div><span class="nav-logo__wordmark">AeroInfill</span><span class="nav-logo__sub">3D Printing Intel</span></div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="category/printers.html">Printers</a></li>
+      <li><a href="category/materials.html">Materials</a></li>
+      <li><a href="category/drone-parts.html">Drones &amp; Parts</a></li>
+      <li><a href="category/guides.html">Guides</a></li>
+      <li><a href="category/design-cad.html">Design &amp; CAD</a></li>
+      <li><a href="#">Deals</a></li>
+    </ul>
+    <a href="category/guides.html" class="nav-cta">Get Intel</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <nav class="nav-drawer" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="category/printers.html">Printers</a>
+    <a href="category/materials.html">Materials</a>
+    <a href="category/drone-parts.html">Drones &amp; Parts</a>
+    <a href="category/guides.html">Guides</a>
+    <a href="category/design-cad.html">Design &amp; CAD</a>
+    <a href="#">Deals</a>
+    <a href="about.html">About</a>
+    <a href="disclosure.html">Disclosure</a>
+  </nav>
+
+  <header class="page-hero">
+    <div class="page-hero__bg" aria-hidden="true"></div>
+    <div class="page-hero__watermark" aria-hidden="true">REVIEW PROCESS</div>
+    <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a><span>&#8250;</span><span aria-current="page">Review Process</span>
+    </nav>
+    <p class="page-hero__tag">AeroInfill // Methodology</p>
+    <h1 class="page-hero__title">How We <span>Test</span></h1>
+    <p class="page-hero__lede">Every verdict on AeroInfill is backed by real test time on real hardware printing real drone parts. This page documents exactly what that process looks like — how we test, what we measure, and how we arrive at a recommendation.</p>
+  </header>
+
+  <div class="page-content">
+    <main class="page-body">
+
+      <div class="prose-section reveal" id="principles">
+        <p class="prose-section__tag">Testing Principles</p>
+        <h2 class="prose-section__heading">Field-Tested, <span>Not Benchmarked</span></h2>
+        <p>The most common failure mode in 3D printing reviews is testing on test prints rather than on the use case the buyer actually cares about. A printer that produces a beautiful 3DBenchy or a smooth calibration cube may produce warped, delaminated motor mounts at the temperatures and speeds required for functional drone parts. Our standard test suite is designed around the parts you actually print.</p>
+        <p>Our <strong>standard test profile</strong> runs on every machine and filament we review:</p>
+        <ul>
+          <li>Camera mount (TPU, 20° and 25° angle variants) — tests flexibility, layer adhesion, and dimensional accuracy for hole fit</li>
+          <li>Motor mount boss (ASA or PETG-CF) — tests high-temperature performance, shrinkage, and structural integrity under simulated crash load</li>
+          <li>FC standoff set (PETG, 30mm height) — tests dimensional accuracy, surface finish, and vibration damping when TPU-equivalent</li>
+          <li>Arm cross-section reference part (PETG-CF, 100mm × 15mm × 5mm) — tests layer adhesion strength, measured on a force gauge</li>
+        </ul>
+        <p>Dimensional accuracy is measured with a digital calliper against nominal dimensions. Surface finish is assessed visually and by hand. Layer adhesion is destructive-tested by hand-loading the arm reference part to failure.</p>
+      </div>
+
+      <div class="prose-section__divider" aria-hidden="true"></div>
+
+      <div class="prose-section reveal" id="printers">
+        <p class="prose-section__tag">Printer Reviews</p>
+        <h2 class="prose-section__heading">How We Test <span>Printers</span></h2>
+        <p>Printer reviews require a minimum of five hours of print time on our standard part profile before a verdict is formed. Long-term reviews (flagged as such) involve a minimum of 40 hours across multiple filament types and multiple spool batches to assess consistency over time.</p>
+        <div class="method-grid">
+          <div class="method-card">
+            <div class="method-card__icon">&#128424;&#65039;</div>
+            <div class="method-card__title">First-Print Performance</div>
+            <p>We test out of the box with zero manual calibration beyond what the machine prompts. This reflects the experience most buyers will have and identifies machines that require significant setup time before producing reliable parts.</p>
+          </div>
+          <div class="method-card">
+            <div class="method-card__icon">&#127919;</div>
+            <div class="method-card__title">Dimensional Accuracy</div>
+            <p>Nominal dimensions measured against a 50mm reference cube and the standard drone part profile. We record mean deviation and worst-case single-dimension error across five identical prints.</p>
+          </div>
+          <div class="method-card">
+            <div class="method-card__icon">&#128293;</div>
+            <div class="method-card__title">Material Compatibility</div>
+            <p>We test each machine on PETG (baseline), ASA (enclosure/temperature test), and PETG-CF where nozzle compatibility allows. Printers that cannot reliably handle ASA are flagged as open-frame limitations.</p>
+          </div>
+          <div class="method-card">
+            <div class="method-card__icon">&#9881;&#65039;</div>
+            <div class="method-card__title">Long-Term Reliability</div>
+            <p>Where test time allows, we assess wear on nozzles, bed surface condition after 50+ hours of use, and consistency of print quality across multiple spool batches of the same filament.</p>
+          </div>
+        </div>
+        <table class="score-table" aria-label="Printer scoring criteria">
+          <thead>
+            <tr>
+              <th scope="col">Criterion</th>
+              <th scope="col">Weight</th>
+              <th scope="col">What We Measure</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Dimensional Accuracy</td><td>25%</td><td>Mean deviation from nominal on reference parts; worst-case single dimension</td></tr>
+            <tr><td>Material Range</td><td>20%</td><td>PETG, ASA, PETG-CF reliability; hotend and bed temperature ceiling</td></tr>
+            <tr><td>First-Print Ease</td><td>20%</td><td>Setup time, auto-calibration quality, first-layer adhesion without manual intervention</td></tr>
+            <tr><td>Print Speed / Throughput</td><td>15%</td><td>Real wall-clock time for standard camera mount at rated quality settings</td></tr>
+            <tr><td>Value</td><td>10%</td><td>Performance relative to purchase price and ongoing cost of ownership</td></tr>
+            <tr><td>Ecosystem &amp; Support</td><td>10%</td><td>Spare parts availability, community size, slicer profile quality</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose-section__divider" aria-hidden="true"></div>
+
+      <div class="prose-section reveal" id="materials">
+        <p class="prose-section__tag">Filament &amp; Material Reviews</p>
+        <h2 class="prose-section__heading">How We Test <span>Materials</span></h2>
+        <p>Material reviews are conducted on a consistent reference printer (Bambu Lab X1 Carbon for enclosed materials; Bambu Lab P1S for ASA/PETG comparison; Creality K1 for budget material testing). Using a reference machine eliminates printer-to-printer variation from the material comparison.</p>
+        <ul>
+          <li><strong>Tensile and adhesion testing:</strong> arm reference parts are loaded to failure by hand and the failure mode observed (inter-layer delamination vs. within-layer fracture indicates material strength vs. process quality)</li>
+          <li><strong>UV stability:</strong> identical camera mounts and antenna brackets left outdoors in direct sunlight for a minimum of 60 days. Assessed for colour change, surface degradation, and dimensional change</li>
+          <li><strong>Dimensional consistency:</strong> five prints from the same spool and five from a fresh spool of the same product; diameter tolerance measured across 10 points per spool</li>
+          <li><strong>Print difficulty:</strong> warping, stringing, and layer adhesion quality assessed subjectively across five test prints using standardised profiles</li>
+          <li><strong>Cost-per-part:</strong> calculated based on spool price and measured consumption on standard reference parts</li>
+        </ul>
+      </div>
+
+      <div class="prose-section__divider" aria-hidden="true"></div>
+
+      <div class="prose-section reveal" id="updates">
+        <p class="prose-section__tag">Editorial Integrity</p>
+        <h2 class="prose-section__heading">Keeping Reviews <span>Current</span></h2>
+        <p>Products change. Firmware updates can meaningfully improve or degrade printer performance. New spool batches can differ from earlier ones. Price changes alter value assessments. We update reviews when:</p>
+        <ul>
+          <li>A significant firmware update affects performance in our test areas</li>
+          <li>The product price changes by more than 15% from the price at time of review</li>
+          <li>Community reports of quality or consistency changes are corroborated by our own retesting</li>
+          <li>A new competitor changes the value assessment in a category</li>
+        </ul>
+        <p>All reviews carry a "Last Updated" date. If a review has not been updated in over 12 months on a rapidly evolving product category, we flag it as potentially outdated.</p>
+      </div>
+
+    </main>
+
+    <aside class="page-sidebar" aria-label="Page sidebar">
+      <nav class="sidebar-card" aria-label="About section navigation">
+        <p class="sidebar-card__heading">In This Section</p>
+        <div class="sidebar-nav">
+          <a href="about.html">&#9670; Our Mission</a>
+          <a href="review-process.html" class="active">&#9670; Review Process</a>
+          <a href="disclosure.html">&#9670; Affiliate Disclosure</a>
+          <a href="contact.html">&#9670; Contact</a>
+        </div>
+      </nav>
+      <div class="sidebar-card">
+        <p class="sidebar-card__heading">On This Page</p>
+        <div class="sidebar-nav">
+          <a href="#principles">Testing Principles</a>
+          <a href="#printers">How We Test Printers</a>
+          <a href="#materials">How We Test Materials</a>
+          <a href="#updates">Keeping Reviews Current</a>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <p class="sidebar-card__heading">Questions?</p>
+        <p>If you have questions about our methodology or want to flag an error in one of our reviews, get in touch.</p>
+        <p><a href="contact.html">Contact us &rarr;</a></p>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="AeroInfill home"><div class="nav-logo__badge" aria-hidden="true">AI</div><div><span class="nav-logo__wordmark">AeroInfill</span><span class="nav-logo__sub">3D Printing Intel</span></div></a>
+        <p class="footer-brand__tagline">Field-tested reviews and gear intelligence for aerospace and drone hobbyists who build with precision.</p>
+      </div>
+      <div><p class="footer-heading">Categories</p><ul class="footer-links"><li><a href="category/printers.html">Printers</a></li><li><a href="category/materials.html">Materials</a></li><li><a href="category/drone-parts.html">Drone Parts</a></li><li><a href="category/design-cad.html">Design &amp; CAD</a></li><li><a href="category/guides.html">Guides</a></li></ul></div>
+      <div><p class="footer-heading">Resources</p><ul class="footer-links"><li><a href="#">Top Deals</a></li><li><a href="#">Comparisons</a></li><li><a href="#">STL Library</a></li><li><a href="#">Newsletter</a></li></ul></div>
+      <div><p class="footer-heading">About</p><ul class="footer-links"><li><a href="about.html">Our Mission</a></li><li><a href="review-process.html">Review Process</a></li><li><a href="disclosure.html">Affiliate Disclosure</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">&copy; 2025 AeroInfill. All rights reserved. &nbsp;//&nbsp; <a href="disclosure.html">Affiliate Disclosure</a> &nbsp;//&nbsp; <a href="#">Privacy Policy</a><br>AeroInfill is a participant in the Amazon Services LLC Associates Program.</p>
+      <div class="footer-signal"><div class="signal-dot" aria-hidden="true"></div>SIGNAL ACTIVE &mdash; TORONTO, CA</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
