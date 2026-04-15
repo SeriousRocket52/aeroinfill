@@ -91,15 +91,55 @@
   }
 })();
 
-/* ── Filter buttons (category pages) ─────────────────────── */
-(function initFilters() {
-  document.querySelectorAll('.filter-group').forEach(group => {
-    group.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        group.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-      });
+/* ── Load More (category pages) ──────────────────────────── */
+(function initLoadMore() {
+  const btn  = document.querySelector('.btn-load-more');
+  const grid = document.querySelector('.article-grid');
+  if (!btn || !grid) return;
+
+  const BATCH    = 6;
+  const allCards = [...grid.querySelectorAll('.article-card')];
+
+  // Hide cards beyond the first batch so the button has work to do
+  if (allCards.length > BATCH) {
+    allCards.slice(BATCH).forEach(card => {
+      card.style.display    = 'none';
+      card.dataset.loadMore = 'hidden';
     });
+  }
+
+  function refreshBtn() {
+    const stillHidden = grid.querySelectorAll('[data-load-more="hidden"]').length;
+    if (stillHidden === 0) {
+      btn.disabled          = true;
+      btn.innerHTML         = '&#9670; All Articles Shown';
+      btn.style.opacity     = '0.45';
+      btn.style.cursor      = 'default';
+      btn.style.borderColor = 'var(--border)';
+      btn.style.color       = 'var(--text-muted)';
+    }
+  }
+
+  // Set initial state (disables immediately when all cards are already visible)
+  refreshBtn();
+
+  btn.addEventListener('click', () => {
+    const hidden = [...grid.querySelectorAll('[data-load-more="hidden"]')];
+    hidden.slice(0, BATCH).forEach(card => {
+      card.style.display    = '';
+      card.dataset.loadMore = '';
+      // Re-trigger the scroll-reveal animation
+      requestAnimationFrame(() => card.classList.add('visible'));
+    });
+
+    // Sync the filter-bar counter
+    const counter = document.querySelector('.filter-bar__count strong');
+    if (counter) {
+      const visibleNow = allCards.filter(c => c.style.display !== 'none').length;
+      counter.textContent = visibleNow;
+    }
+
+    refreshBtn();
   });
 })();
 
