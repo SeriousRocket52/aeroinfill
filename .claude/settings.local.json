@@ -8,7 +8,22 @@
       "Bash(powershell -Command \"Get-ChildItem -Path ''C:\\\\Users\\\\SR52\\\\Documents\\\\aeroinfill'' -Recurse -File | ForEach-Object { $path = $_.FullName; $content = Get-Content $path -Raw; if \\($content -match ''SeriousRocket52\\\\.github\\\\.io/aeroinfill''\\) { $content -replace ''SeriousRocket52\\\\.github\\\\.io/aeroinfill'', ''aeroinfill.com'' | Set-Content $path -NoNewline } }\")",
       "Bash(powershell -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\SR52\\\\Documents\\\\aeroinfill\\\\fix_nav.ps1\")",
       "Bash(powershell -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\SR52\\\\Documents\\\\aeroinfill\\\\fix_deals_nav.ps1\")",
-      "Bash(powershell -Command 'Get-ChildItem -Path '\\\\''C:\\\\Users\\\\SR52\\\\Documents\\\\aeroinfill'\\\\'' -Recurse -Filter '\\\\''*.html'\\\\'' | ForEach-Object { $path = $_.FullName; $content = Get-Content $path -Raw; if \\($content -match \"content:'\\\\''&#x203a;'\\\\''\"\\) { $content -replace \"content:'\\\\''&#x203a;'\\\\''\", \"content:'\\\\''\\\\203a'\\\\''\" | Set-Content $path -NoNewline } }')"
+      "Bash(powershell -Command 'Get-ChildItem -Path '\\\\''C:\\\\Users\\\\SR52\\\\Documents\\\\aeroinfill'\\\\'' -Recurse -Filter '\\\\''*.html'\\\\'' | ForEach-Object { $path = $_.FullName; $content = Get-Content $path -Raw; if \\($content -match \"content:'\\\\''&#x203a;'\\\\''\"\\) { $content -replace \"content:'\\\\''&#x203a;'\\\\''\", \"content:'\\\\''\\\\203a'\\\\''\" | Set-Content $path -NoNewline } }')",
+      "Bash(grep -n \"https://amzn.to/48j0fiA\" C:/Users/SR52/Documents/aeroinfill/articles/*.html)",
+      "Bash(python3)",
+      "WebSearch",
+      "Bash(powershell -ExecutionPolicy Bypass -Command ':*)",
+      "Bash(grep -n \"link.*favicon\\\\|link.*icon\\\\|link.*apple\\\\|og:image\" /c/Users/SR52/Documents/aeroinfill/*.html)",
+      "Bash(git log:*)",
+      "Bash(grep -h \"og:\\\\|twitter:\\\\|favicon\\\\|apple\\\\|icon\" /c/Users/SR52/Documents/aeroinfill/*.html)",
+      "Bash(grep -h \"og:image\" /c/Users/SR52/Documents/aeroinfill/articles/*.html)",
+      "Bash(magick --version)",
+      "Bash(convert --version)",
+      "Bash(python -c \"from PIL import Image; print\\('Pillow OK'\\)\")",
+      "Bash(pip install:*)",
+      "Bash(python -m pip install Pillow -q)",
+      "Bash(python -m pip install Pillow)",
+      "Bash(python)"
     ]
   }
 }

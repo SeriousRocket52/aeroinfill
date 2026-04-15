@@ -327,22 +327,16 @@ body::after {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
   text-decoration: none;
   flex-shrink: 0;
 }
 
-.nav-logo__badge {
-  width: 30px;
-  height: 30px;
-  border: 2px solid var(--amber);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--amber);
-  flex-shrink: 0;
+.nav-logo__img {
+  height: 40px;
+  width: auto;
+  display: block;
+  filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(1.1);
+  margin-right: 10px;
 }
 
 .nav-logo__wordmark {
