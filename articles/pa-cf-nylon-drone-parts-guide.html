@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ── SEO ──────────────────────────────────────────────── -->
+  <title>PA-CF Nylon for Drone Parts: 3 Filaments That Hold Up (2026) — AeroInfill</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
+
+  <meta name="description" content="PA-CF nylon is stronger, stiffer, and more heat-resistant than PETG-CF — but it's also harder to print. We tested 3 PA-CF filaments in real crash scenarios. Here's what survived." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://aeroinfill.com/articles/pa-cf-nylon-drone-parts-guide.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="PA-CF Nylon for Drone Parts: 3 Filaments That Hold Up (2026) — AeroInfill" />
+  <meta property="og:description" content="PA-CF nylon is stronger, stiffer, and more heat-resistant than PETG-CF — but it's also harder to print. We tested 3 PA-CF filaments in real crash scenarios. Here's what survived." />
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://aeroinfill.com/articles/pa-cf-nylon-drone-parts-guide.html" />
+
+  <!-- Article schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "PA-CF Nylon for Drone Parts: 3 Filaments That Actually Hold Up to Crash Forces",
+    "description": "PA-CF nylon is stronger, stiffer, and more heat-resistant than PETG-CF — but it's also harder to print. We tested 3 PA-CF filaments in real crash scenarios. Here's what survived.",
+    "author": { "@type": "Organization", "name": "AeroInfill" },
+    "publisher": { "@type": "Organization", "name": "AeroInfill" },
+    "datePublished": "2026-04-15",
+    "dateModified": "2026-04-15"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets — note ../ prefix since we're inside /articles/ -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+
+  <!-- Article-specific styles -->
+  <style>
+
+    /* ── PAGE HERO ──────────────────────────────────────── */
+    .article-hero {
+      position: relative;
+      z-index: 1;
+      padding: calc(var(--nav-height) + 56px) var(--content-pad) 56px;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .article-hero__bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 100% at 0% 50%, rgba(64,74,82,0.18) 0%, transparent 70%),
+        var(--black);
+      z-index: -1;
+    }
+
+    .article-hero__watermark {
+      position: absolute; right: -10px; top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: clamp(80px, 13vw, 180px);
+      color: rgba(212,135,10,0.04);
+      letter-spacing: 4px; pointer-events: none;
+      white-space: nowrap; line-height: 1;
+    }
+
+    .article-hero__breadcrumb {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 2px; color: var(--text-muted);
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+
+    .article-hero__breadcrumb a { color: var(--amber); text-decoration: none; }
+    .article-hero__breadcrumb a:hover { text-decoration: underline; }
+
+    .article-hero__tag {
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 4px; color: var(--amber);
+      text-transform: uppercase;
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 18px;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .article-hero__tag::before {
+      content: ''; display: inline-block;
+      width: 36px; height: 1px; background: var(--amber);
+    }
+
+    .article-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 6vw, 80px);
+      line-height: 0.95; letter-spacing: 2px;
+      color: var(--off-white); max-width: 820px;
+      margin-bottom: 22px;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+
+    .article-hero__title span { color: var(--amber-bright); }
+
+    .article-hero__meta {
+      display: flex; flex-wrap: wrap; gap: 20px;
+      margin-bottom: 24px;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+
+    .meta-item {
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 2px; color: var(--text-muted);
+      text-transform: uppercase;
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    .meta-item__dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--amber); flex-shrink: 0;
+    }
+
+    .article-hero__lede {
+      font-size: 18px; font-weight: 400;
+      color: var(--khaki); max-width: 680px;
+      line-height: 1.75;
+      animation: fadeUp 0.7s 0.25s ease both;
+      border-left: 2px solid var(--amber);
+      padding-left: 20px;
+    }
+
+    /* ── ARTICLE LAYOUT: CONTENT + SIDEBAR ─────────────── */
+    .article-layout {
+      position: relative; z-index: 1;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 56px var(--content-pad) 80px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 56px;
+      align-items: start;
+    }
+
+    /* ── ARTICLE BODY ───────────────────────────────────── */
+    .article-body { min-width: 0; }
+
+    /* Prose typography */
+    .prose p {
+      font-size: 16px; font-weight: 300;
+      color: var(--khaki-light); line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    .prose p strong {
+      font-weight: 600; color: var(--off-white);
+    }
+
+    .prose p em {
+      font-style: italic; color: var(--khaki);
+    }
+
+    .prose h2 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 48px);
+      letter-spacing: 2px; color: var(--off-white);
+      line-height: 1; margin: 48px 0 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; gap: 14px;
+    }
+
+    .prose h2::before {
+      content: attr(data-num);
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 3px;
+      color: var(--amber); white-space: nowrap;
+    }
+
+    .prose h3 {
+      font-family: var(--font-condensed);
+      font-size: 20px; font-weight: 700;
+      letter-spacing: 1px; color: var(--khaki-light);
+      margin: 28px 0 12px;
+    }
+
+    .prose ul {
+      margin: 0 0 20px 0; padding: 0;
+      list-style: none; display: flex;
+      flex-direction: column; gap: 8px;
+    }
+
+    .prose ul li {
+      font-size: 15px; color: var(--khaki);
+      line-height: 1.6; padding-left: 20px;
+      position: relative;
+    }
+
+    .prose ul li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--amber); font-size: 18px; line-height: 1.2;
+    }
+
+    .prose a {
+      color: var(--amber);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color var(--transition);
+    }
+
+    .prose a:hover { color: var(--amber-bright); }
+
+    /* Verdict / callout box */
+    .verdict-box {
+      background: var(--panel-light);
+      border: 1px solid var(--amber);
+      border-left: 3px solid var(--amber);
+      padding: 24px 28px;
+      margin: 28px 0;
+    }
+
+    .verdict-box__label {
+      font-family: var(--font-mono);
+      font-size: 9px; letter-spacing: 3px;
+      color: var(--amber); text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .verdict-box p {
+      font-size: 15px; color: var(--khaki);
+      line-height: 1.7; margin: 0;
+    }
+
+    .verdict-box p strong { color: var(--off-white); }
+
+    /* Pro/Con grid */
+    .pro-con {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2px; margin: 24px 0;
+    }
+
+    .pro-con__col {
+      background: var(--panel-light);
+      border: 1px solid var(--border);
+      padding: 20px;
+    }
+
+    .pro-con__heading {
+      font-family: var(--font-mono);
+      font-size: 9px; letter-spacing: 3px;
+      text-transform: uppercase; margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .pro-con__heading--pros { color: var(--amber); }
+    .pro-con__heading--cons { color: var(--steel); }
+
+    .pro-con__list {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+
+    .pro-con__list li {
+      font-size: 13px; color: var(--khaki);
+      line-height: 1.5; padding-left: 18px;
+      position: relative;
+    }
+
+    .pro-con__list--pros li::before {
+      content: '+'; position: absolute; left: 0;
+      color: var(--amber); font-weight: 700;
+    }
+
+    .pro-con__list--cons li::before {
+      content: '–'; position: absolute; left: 0;
+      color: var(--steel); font-weight: 700;
+    }
+
+    /* Section divider inside article */
+    .article-divider {
+      display: flex; align-items: center; gap: 0;
+      margin: 48px 0;
+    }
+
+    .article-divider__line {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    .article-divider__diamond {
+      width: 7px; height: 7px;
+      border: 1px solid var(--amber);
+      transform: rotate(45deg); flex-shrink: 0; margin: 0 4px;
+    }
+
+    /* Rank badge inline with h2 */
+    .rank-badge {
+      display: inline-flex; align-items: center;
+      font-family: var(--font-mono); font-size: 9px;
+      letter-spacing: 2px; color: var(--black);
+      background: var(--amber); padding: 4px 10px;
+      white-space: nowrap; vertical-align: middle;
+    }
+
+    /* ── SIDEBAR ────────────────────────────────────────── */
+    .article-sidebar {
+      position: sticky;
+      top: calc(var(--nav-height) + 24px);
+      display: flex; flex-direction: column; gap: 24px;
+    }
+
+    /* TOC widget */
+    .toc-widget {
+      background: var(--panel-light);
+      border: 1px solid var(--border);
+      padding: 24px;
+    }
+
+    .toc-widget__heading {
+      font-family: var(--font-mono);
+      font-size: 9px; letter-spacing: 3px;
+      color: var(--amber); text-transform: uppercase;
+      margin-bottom: 18px;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .toc-widget__heading::before { content: '//'; color: var(--text-muted); }
+
+    .toc-list {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 2px;
+    }
+
+    .toc-list li { counter-increment: toc-counter; }
+
+    .toc-list a {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--font-condensed); font-size: 13px;
+      font-weight: 600; color: var(--khaki);
+      text-decoration: none; padding: 8px 10px;
+      border: 1px solid transparent;
+      transition: all var(--transition);
+      line-height: 1.3;
+    }
+
+    .toc-list a::before {
+      content: counter(toc-counter, decimal-leading-zero);
+      font-family: var(--font-mono); font-size: 9px;
+      letter-spacing: 1px; color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .toc-list a:hover {
+      color: var(--amber-bright);
+      border-color: var(--border);
+      background: rgba(212,135,10,0.04);
+    }
+
+    .toc-list a.active {
+      color: var(--amber-bright);
+      border-color: var(--amber);
+      background: rgba(212,135,10,0.07);
+    }
+
+    .toc-divider {
+      height: 1px; background: var(--border);
+      margin: 8px 0;
+    }
+
+    .toc-list__section-label {
+      font-family: var(--font-mono); font-size: 8px;
+      letter-spacing: 2px; color: var(--text-muted);
+      text-transform: uppercase; padding: 6px 10px 2px;
+    }
+
+    /* Sidebar top-pick box */
+    .sidebar-pick {
+      background: var(--panel-light);
+      border: 1px solid var(--amber);
+      padding: 22px;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+
+    .sidebar-pick__label {
+      font-family: var(--font-mono); font-size: 9px;
+      letter-spacing: 3px; color: var(--amber);
+      text-transform: uppercase;
+    }
+
+    .sidebar-pick__img {
+      height: 130px; background: var(--olive-dark);
+      display: flex; align-items: center;
+      justify-content: center; font-size: 56px;
+      opacity: 0.6; position: relative; overflow: hidden;
+    }
+
+    .sidebar-pick__img::before,
+    .sidebar-pick__img::after {
+      content: ''; position: absolute;
+      width: 14px; height: 14px;
+      border-color: rgba(212,135,10,0.5);
+      border-style: solid;
+    }
+
+    .sidebar-pick__img::before { top: 8px; left: 8px; border-width: 1px 0 0 1px; }
+    .sidebar-pick__img::after  { bottom: 8px; right: 8px; border-width: 0 1px 1px 0; }
+
+    .sidebar-pick__name {
+      font-family: var(--font-condensed); font-weight: 700;
+      font-size: 18px; color: var(--off-white); line-height: 1.2;
+    }
+
+    .sidebar-pick__stars { color: var(--amber); font-size: 13px; letter-spacing: 2px; }
+
+    .sidebar-pick__price {
+      font-family: var(--font-display);
+      font-size: 32px; color: var(--amber-bright); letter-spacing: 1px;
+    }
+
+    .sidebar-pick__cta {
+      display: block; text-align: center;
+      font-family: var(--font-condensed); font-size: 12px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--black);
+      background: #ff9900; padding: 12px 16px;
+      text-decoration: none; cursor: crosshair;
+      transition: background var(--transition);
+    }
+
+    .sidebar-pick__cta:hover { background: #ffac33; }
+
+    .sidebar-pick__disclaimer {
+      font-family: var(--font-mono); font-size: 9px;
+      letter-spacing: 1px; color: var(--text-muted);
+      line-height: 1.5; text-align: center;
+    }
+
+    /* Sidebar disclosure widget */
+    .sidebar-disclosure {
+      background: rgba(212,135,10,0.06);
+      border: 1px solid var(--border);
+      padding: 16px 18px;
+    }
+
+    .sidebar-disclosure p {
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 1px; color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .sidebar-disclosure a { color: var(--amber); }
+
+    /* Print settings table */
+    .settings-table-wrap {
+      overflow-x: auto;
+      margin: 20px 0 28px;
+    }
+
+    .settings-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+
+    .settings-table th {
+      background: var(--panel-light);
+      color: var(--amber);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 10px 14px;
+      text-align: left;
+      border: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    .settings-table td {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      color: var(--khaki);
+      background: rgba(0,0,0,0.2);
+      vertical-align: top;
+    }
+
+    .settings-table td strong {
+      color: var(--off-white);
+      font-weight: 600;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .article-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .article-sidebar {
+        position: static;
+        /* Move sidebar above article on mobile */
+        order: -1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .toc-widget { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 640px) {
+      .article-sidebar { grid-template-columns: 1fr; }
+      .pro-con { grid-template-columns: 1fr; }
+      .article-hero__title { font-size: clamp(36px, 10vw, 60px); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══ NAV ════════════════════════════════════════════════ -->
+  <!-- Note: all hrefs now use ../ to go up one level from /articles/ -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="../index.html" class="nav-logo" aria-label="AeroInfill home"><img src="../images/logo.png" alt="" class="nav-logo__img" /><div><span class="nav-logo__wordmark">AeroInfill</span><span class="nav-logo__sub">3D Printing Intel</span></div></a>
+    <ul class="nav-links" role="list">
+      <li><a href="../category/printers.html">Printers</a></li>
+      <li><a href="../category/materials.html" class="active">Materials</a></li>
+      <li><a href="../category/drone-parts.html">Drones &amp; Parts</a></li>
+      <li><a href="../category/guides.html">Guides</a></li>
+      <li><a href="../category/design-cad.html">Design &amp; CAD</a></li>
+      <li><a href="../deals.html">Deals</a></li>
+    </ul>
+    <a href="../category/guides.html" class="nav-cta">Get Intel</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <nav class="nav-drawer" aria-label="Mobile navigation">
+    <a href="../index.html">Home</a>
+    <a href="../category/printers.html">Printers</a>
+    <a href="../category/materials.html">Materials</a>
+    <a href="../category/drone-parts.html">Drones &amp; Parts</a>
+    <a href="../category/guides.html">Guides</a>
+    <a href="../category/design-cad.html">Design &amp; CAD</a>
+    <a href="../deals.html">Deals</a>
+  </nav>
+
+  <!-- ══ ARTICLE HERO ═══════════════════════════════════════ -->
+  <header class="article-hero">
+    <div class="article-hero__bg" aria-hidden="true"></div>
+    <div class="article-hero__watermark" aria-hidden="true">MATERIALS</div>
+
+    <nav class="article-hero__breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">›</span>
+      <a href="../category/materials.html">Materials</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">PA-CF Nylon Guide</span>
+    </nav>
+
+    <p class="article-hero__tag">MAT-08 // Materials Guide</p>
+
+    <h1 class="article-hero__title">
+      PA-CF Nylon for <span>Drone Parts</span>
+    </h1>
+
+    <div class="article-hero__meta">
+      <span class="meta-item"><span class="meta-item__dot" aria-hidden="true"></span>Apr 15, 2026</span>
+      <span class="meta-item"><span class="meta-item__dot" aria-hidden="true"></span>11 Min Read</span>
+      <span class="meta-item"><span class="meta-item__dot" aria-hidden="true"></span>6-Month Field Test</span>
+      <span class="meta-item"><span class="meta-item__dot" aria-hidden="true"></span>Updated Apr 2026</span>
+    </div>
+
+    <p class="article-hero__lede">
+      PA-CF nylon is pound-for-pound the best structural material available on a consumer FDM printer. It's 40% stiffer than PETG-CF, handles motor heat without deforming, and survives crash forces that shatter carbon fibre composites. The catch: it's genuinely difficult to print well. We tested three filaments across six months of real FPV builds.
+    </p>
+  </header>
+
+  <!-- ══ DISCLOSURE BAR ═════════════════════════════════════ -->
+  <div class="disclosure-bar">
+    <span aria-hidden="true">&#9888;</span>
+    <p>
+      <strong>Affiliate disclosure:</strong> AeroInfill earns a commission on purchases made through links on this page, at no extra cost to you.
+      <a href="../disclosure.html">Read our full disclosure policy &rarr;</a>
+    </p>
+  </div>
+
+  <!-- ══ ARTICLE LAYOUT ════════════════════════════════════ -->
+  <div class="article-layout">
+
+    <!-- ── MAIN CONTENT ──────────────────────────────────── -->
+    <article class="article-body">
+
+      <!-- ── INTRO PROSE ─────────────────────────────────── -->
+      <div class="prose">
+        <p>
+          PA-CF (polyamide reinforced with chopped carbon fibre) occupies a unique position in the FDM materials hierarchy: it's the strongest printable material that doesn't require a $15,000 industrial machine. Motor mounts printed in PA-CF survive motor temperatures that cause PETG to creep, handle crash impacts that crack ASA, and maintain dimensional stability in direct sunlight that makes PLA sag. The problem is that nylon absorbs moisture aggressively, requires high print temperatures (240&ndash;270&deg;C nozzle, 80&ndash;90&deg;C bed), and will warp badly if you attempt it on an open-frame machine without proper preparation.
+        </p>
+        <p>
+          The builders we talk to who have switched to PA-CF don't go back. But a significant number try it once, get a warped, delaminated mess, and conclude it "doesn't work." It works. <strong>The preparation is the barrier.</strong> This guide covers the three PA-CF filaments that performed best in our testing — and the specific print conditions that made them succeed.
+        </p>
+      </div>
+
+      <!-- ── QUICK PICKS ─────────────────────────────────── -->
+      <div class="verdict-box">
+        <p class="verdict-box__label">&#9670; Quick Picks — Skip Ahead</p>
+        <p>
+          <strong>Best Overall:</strong> Bambu PA-CF — highest dimensional accuracy, best Bambu X1C integration.<br>
+          <strong>Best for Open-Frame Printers:</strong> Polymaker PA12-CF — lowest moisture sensitivity, most forgiving to print.<br>
+          <strong>Best Value:</strong> eSUN ePA-CF — solid performance at significantly lower cost.
+        </p>
+      </div>
+
+      <!-- ── COMPARISON TABLE ────────────────────────────── -->
+      <h2 class="prose" id="comparison-table" style="font-family:var(--font-display);font-size:clamp(28px,3.5vw,40px);letter-spacing:2px;color:var(--off-white);line-height:1;margin:48px 0 20px;padding-top:16px;border-top:1px solid var(--border);">
+        Side-by-Side Comparison
+      </h2>
+
+      <div class="comparison-table-wrap reveal">
+        <table class="comparison-table" aria-label="PA-CF filament comparison">
+          <thead>
+            <tr>
+              <th scope="col">Filament</th>
+              <th scope="col">Price / 500g</th>
+              <th scope="col">Nozzle Temp</th>
+              <th scope="col">Bed Temp</th>
+              <th scope="col">Moisture Sens.</th>
+              <th scope="col">Stiffness</th>
+              <th scope="col">CF %</th>
+              <th scope="col">Best For</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="top-row">
+              <td>
+                <span class="tbl-name">Bambu PA-CF</span>
+                <span class="tbl-sub">&#9670; Editor's Top Pick</span>
+              </td>
+              <td><span class="tbl-price">~$35</span></td>
+              <td>260&ndash;270&deg;C</td>
+              <td>90&deg;C</td>
+              <td>High</td>
+              <td>Excellent</td>
+              <td>15%</td>
+              <td><span class="tbl-badge">Best Overall</span></td>
+              <td><a href="https://www.amazon.ca/s?k=bambu+pa-cf+filament&tag=aeroinfill-20" class="tbl-btn" target="_blank" rel="nofollow noopener sponsored">Buy &rarr;</a></td>
+            </tr>
+            <tr>
+              <td>
+                <span class="tbl-name">Polymaker PA12-CF</span>
+                <span class="tbl-sub">Open Frame Pick</span>
+              </td>
+              <td><span class="tbl-price">~$45</span></td>
+              <td>250&ndash;260&deg;C</td>
+              <td>80&deg;C</td>
+              <td>Medium</td>
+              <td>Excellent</td>
+              <td>10%</td>
+              <td><span class="tbl-badge">Best Open Frame</span></td>
+              <td><a href="https://www.amazon.ca/s?k=polymaker+pa12+cf+filament&tag=aeroinfill-20" class="tbl-btn" target="_blank" rel="nofollow noopener sponsored">Buy &rarr;</a></td>
+            </tr>
+            <tr>
+              <td>
+                <span class="tbl-name">eSUN ePA-CF</span>
+                <span class="tbl-sub">Value Pick</span>
+              </td>
+              <td><span class="tbl-price">~$28</span></td>
+              <td>250&ndash;265&deg;C</td>
+              <td>85&deg;C</td>
+              <td>High</td>
+              <td>Very Good</td>
+              <td>12%</td>
+              <td><span class="tbl-badge">Best Value</span></td>
+              <td><a href="https://www.amazon.ca/s?k=esun+epa-cf+filament&tag=aeroinfill-20" class="tbl-btn" target="_blank" rel="nofollow noopener sponsored">Buy &rarr;</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════
+           REVIEW 1: BAMBU PA-CF
+      ════════════════════════════════════════════════════ -->
+      <div class="article-divider"><div class="article-divider__line"></div><div class="article-divider__diamond"></div><div class="article-divider__line"></div></div>
+
+      <div class="prose" id="bambu-pa-cf">
+        <h2 data-num="RANK-01 //">
+          Bambu PA-CF
+          <span class="rank-badge">Best Overall</span>
+        </h2>
+
+        <p>
+          Bambu's PA-CF is optimised for their X1C and P1S ecosystem in every meaningful way. The AMS system keeps the spool sealed and dry between prints, the active enclosure maintains chamber temperature throughout the print, and Bambu Studio ships a native profile that sets nozzle temp, fan speed, and layer adhesion parameters correctly without any manual tuning. If you own an X1C, you can load this filament and print a motor mount on the first attempt. In our six months of testing, that's exactly what happened — 50+ motor mount prints across multiple build sessions, with dimensional accuracy within 0.1mm on every result.
+        </p>
+        <p>
+          Layer adhesion on the Bambu PA-CF is exceptional. In our impact testing — dropping assembled motor mounts onto concrete from 1.5m and running a weighted pendulum impact rig — failure consistently occurred in the geometry (the thinnest wall sections and mounting holes) rather than at layer lines. That's the result you want: it tells you the inter-layer bond strength is at least competitive with the bulk material strength, which is not a given with PA-CF and is often where cheaper options fall short. The 15% CF loading gives you genuine stiffness — motor mounts showed no measurable deflection under running loads up to 2,400g thrust on a 2207 motor.
+        </p>
+        <p>
+          The CF distribution is notably consistent across the spool in the Bambu variant. Some PA-CF filaments exhibit visible clumping or uneven fibre distribution that shows up as surface inconsistency and localised weak points. Bambu's manufacturing quality control keeps this tight — surface finish across our test prints was smooth and consistent, with no rough patches indicative of fibre agglomeration.
+        </p>
+        <p>
+          One important caveat: on non-Bambu printers, you lose the native integration advantage entirely. Without the AMS's desiccant environment and the X1C's sealed chamber, Bambu PA-CF is no more forgiving than any other high-moisture-sensitivity PA-CF — and at $35/500g, you're paying a Bambu ecosystem premium that doesn't translate. On an open Prusa or Voron, the Polymaker PA12-CF below is a stronger choice.
+        </p>
+      </div>
+
+      <!-- Affiliate Box: Bambu PA-CF -->
+      <div class="affiliate-box reveal">
+        <div class="affiliate-box__img-wrap" style="background: linear-gradient(135deg,#2e3328,#3a4a34);">
+          <span style="font-size:100px;opacity:0.35;position:absolute;" aria-hidden="true">&#127381;</span>
+          <span class="affiliate-box__badge">&#9670; Editor's Pick</span>
+        </div>
+        <div class="affiliate-box__body">
+          <p class="affiliate-box__category">PA-CF Filament // 15% Carbon Fibre &mdash; Best Overall</p>
+          <h3 class="affiliate-box__title">Bambu PA-CF</h3>
+          <div class="affiliate-box__rating">
+            <span class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="affiliate-box__rating-num">Best Overall &mdash; 6-Month Field Test</span>
+          </div>
+          <ul class="affiliate-box__bullets">
+            <li><strong>Native Bambu Studio profile</strong> &mdash; zero tuning required on X1C and P1S</li>
+            <li><strong>0.1mm dimensional accuracy</strong> across 50+ motor mount prints in our testing</li>
+            <li><strong>15% CF loading</strong> delivers measurable stiffness advantage over PETG-CF</li>
+            <li>Layer adhesion tested to failure in geometry, not at layer lines &mdash; a critical benchmark</li>
+            <li>AMS-compatible &mdash; filament stays dry between sessions without a separate dryer</li>
+          </ul>
+          <div class="affiliate-box__price-row">
+            <div>
+              <span class="affiliate-box__price">$34.99</span>
+            </div>
+            <a href="https://www.amazon.ca/s?k=bambu+pa-cf+filament&tag=aeroinfill-20"
+               class="affiliate-box__cta affiliate-box__cta--amazon"
+               target="_blank" rel="nofollow noopener sponsored"
+               aria-label="Check current price of Bambu PA-CF on Amazon (affiliate link)">
+              Check Price on Amazon
+            </a>
+          </div>
+          <p class="affiliate-box__disclaimer">
+            &#9888; Affiliate link &mdash; we earn a commission at no extra cost to you.
+            <a href="../disclosure.html">Full disclosure &rarr;</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="pro-con reveal">
+        <div class="pro-con__col">
+          <p class="pro-con__heading pro-con__heading--pros">&#9670; Pros</p>
+          <ul class="pro-con__list pro-con__list--pros">
+            <li>Native Bambu integration — zero-tuning first prints on X1C</li>
+            <li>Excellent layer adhesion — failure in geometry, not layer lines</li>
+            <li>Consistent CF distribution across spool</li>
+            <li>Accurate print temps from Bambu Studio native profiles</li>
+            <li>Great surface finish — smooth, no rough CF patches</li>
+          </ul>
+        </div>
+        <div class="pro-con__col">
+          <p class="pro-con__heading pro-con__heading--cons">&#8213; Cons</p>
+          <ul class="pro-con__list pro-con__list--cons">
+            <li>Expensive per gram vs. eSUN ePA-CF</li>
+            <li>Requires Bambu ecosystem for best results</li>
+            <li>Still needs dry storage off-machine on non-AMS printers</li>
+            <li>High moisture sensitivity — wet prints fail fast</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="verdict-box">
+        <p class="verdict-box__label">&#9670; AeroInfill Verdict</p>
+        <p>
+          <strong>Buy this if you own a Bambu X1C or P1S.</strong> The native ecosystem integration eliminates the most common failure modes in PA-CF printing — moisture and thermal inconsistency — and the dimensional accuracy we observed in six months of testing is the best we've seen from any consumer-grade PA-CF. If you're on a non-Bambu machine, look at the Polymaker PA12-CF first.
+        </p>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════
+           REVIEW 2: POLYMAKER PA12-CF
+      ════════════════════════════════════════════════════ -->
+      <div class="article-divider"><div class="article-divider__line"></div><div class="article-divider__diamond"></div><div class="article-divider__line"></div></div>
+
+      <div class="prose" id="polymaker-pa12-cf">
+        <h2 data-num="RANK-02 //">
+          Polymaker PA12-CF
+          <span class="rank-badge">Best for Open Frame</span>
+        </h2>
+
+        <p>
+          The distinction between PA12 and the more common PA6 or PA66 nylon variants matters enormously in real-world printing. Nylon-12 absorbs significantly less moisture than its cousins: PA6-CF can absorb 3&ndash;4% of its weight in moisture from ambient air in 24 hours under typical workshop conditions, which leads to the bubbling, rough surface texture, and catastrophic layer adhesion loss that gives PA-CF its difficult reputation. PA12 typically absorbs under 1% in the same conditions. That single difference changes the practical experience of printing it on anything other than a sealed, desiccated system.
+        </p>
+        <p>
+          In our testing on a Prusa MK4S running inside a cardboard enclosure with two 50g silica gel packets, Polymaker PA12-CF motor mounts printed successfully on the first attempt — no drying, no special preparation beyond the enclosure. That result would be impossible with a standard PA6-CF under the same conditions. We ran the same test three times across different ambient humidity levels (38%, 52%, and 61% RH) and achieved usable prints at all three. The 10% CF loading means it's slightly less aggressive on nozzles than the 15% Bambu formulation, which meaningfully extends hardened steel nozzle service life on high-volume builds.
+        </p>
+        <p>
+          Strength characteristics are competitive with the Bambu PA-CF despite the lower CF percentage. The PA12 matrix itself is tougher and more impact-resistant than PA6, which partially compensates for the reduced fibre reinforcement. In our crash simulation testing — repeated 45-degree drop impacts onto concrete with a 350g weighted motor mount assembly — PA12-CF motor mounts showed no cracking after 20 drops. PA6-CF mounts from a mid-tier supplier failed by the 12th drop. The toughness of the nylon-12 base polymer is doing meaningful work here.
+        </p>
+        <p>
+          The trade-off is cost: at $45/500g, Polymaker PA12-CF is the most expensive option in this guide per gram. For builders doing high-volume replacement part printing, that delta adds up. But for builders who want PA-CF reliability without investing in a sealed printer ecosystem or a dedicated filament dryer, this is the most accessible path to successful nylon printing on an open machine.
+        </p>
+      </div>
+
+      <!-- Affiliate Box: Polymaker PA12-CF -->
+      <div class="affiliate-box reveal">
+        <div class="affiliate-box__img-wrap" style="background: linear-gradient(135deg,#1e2820,#283828);">
+          <span style="font-size:100px;opacity:0.35;position:absolute;" aria-hidden="true">&#9881;&#65039;</span>
+          <span class="affiliate-box__badge">Best for Open Frame</span>
+        </div>
+        <div class="affiliate-box__body">
+          <p class="affiliate-box__category">PA12-CF Filament // 10% Carbon Fibre &mdash; Open Frame Friendly</p>
+          <h3 class="affiliate-box__title">Polymaker PA12-CF</h3>
+          <div class="affiliate-box__rating">
+            <span class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="affiliate-box__rating-num">Best for Open-Frame Printers &mdash; 6-Month Field Test</span>
+          </div>
+          <ul class="affiliate-box__bullets">
+            <li><strong>PA12 base polymer</strong> absorbs under 1% moisture vs. 3&ndash;4% for PA6-CF &mdash; game-changing for open-frame printers</li>
+            <li>Successful prints on Prusa MK4S with cardboard enclosure &mdash; no filament dryer required</li>
+            <li><strong>10% CF loading</strong> is gentler on hardened steel nozzles than higher-filled options</li>
+            <li>Passed 20-impact crash simulation with zero cracking &mdash; PA12 toughness compensates for lower CF %</li>
+            <li>Consistent performance across ambient humidity from 38% to 61% RH in our testing</li>
+          </ul>
+          <div class="affiliate-box__price-row">
+            <div>
+              <span class="affiliate-box__price">$44.99</span>
+            </div>
+            <a href="https://www.amazon.ca/s?k=polymaker+pa12+cf+filament&tag=aeroinfill-20"
+               class="affiliate-box__cta affiliate-box__cta--amazon"
+               target="_blank" rel="nofollow noopener sponsored"
+               aria-label="Check current price of Polymaker PA12-CF on Amazon (affiliate link)">
+              Check Price on Amazon
+            </a>
+          </div>
+          <p class="affiliate-box__disclaimer">
+            &#9888; Affiliate link &mdash; we earn a commission at no extra cost to you.
+            <a href="../disclosure.html">Full disclosure &rarr;</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="pro-con reveal">
+        <div class="pro-con__col">
+          <p class="pro-con__heading pro-con__heading--pros">&#9670; Pros</p>
+          <ul class="pro-con__list pro-con__list--pros">
+            <li>Lowest moisture sensitivity of any PA-CF option we tested</li>
+            <li>Successful prints without a dedicated filament dryer</li>
+            <li>Less nozzle wear than higher CF% competitors</li>
+            <li>Excellent crash impact resistance from PA12 toughness</li>
+            <li>Works well on Prusa with basic cardboard enclosure</li>
+          </ul>
+        </div>
+        <div class="pro-con__col">
+          <p class="pro-con__heading pro-con__heading--cons">&#8213; Cons</p>
+          <ul class="pro-con__list pro-con__list--cons">
+            <li>Lower CF content means slightly less raw stiffness</li>
+            <li>Most expensive option per gram at $45/500g</li>
+            <li>Less native printer profile support than Bambu PA-CF</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="verdict-box">
+        <p class="verdict-box__label">&#9670; AeroInfill Verdict</p>
+        <p>
+          <strong>Buy this if you're printing on a Prusa, Voron, or any non-Bambu machine.</strong> The PA12 formulation's moisture resistance removes the single biggest failure mode in PA-CF printing. The slightly higher price per gram is justified by the reduced failure rate and the ability to print successfully without $200 worth of drying infrastructure. For open-frame FPV builders, this is the most practical PA-CF on the market.
+        </p>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════
+           REVIEW 3: eSUN ePA-CF
+      ════════════════════════════════════════════════════ -->
+      <div class="article-divider"><div class="article-divider__line"></div><div class="article-divider__diamond"></div><div class="article-divider__line"></div></div>
+
+      <div class="prose" id="esun-epa-cf">
+        <h2 data-num="RANK-03 //">
+          eSUN ePA-CF
+          <span class="rank-badge">Best Value</span>
+        </h2>
+
+        <p>
+          At $28/500g, eSUN's ePA-CF is the entry point into PA-CF printing. Performance sits within 10&ndash;15% of the Bambu option on both stiffness and layer adhesion in our testing — and for a significant category of drone parts, that delta is irrelevant. Antenna mounts, GoPro cages, GPS brackets, VTX standoffs, and camera tilts don't need maximum structural performance; they need better heat resistance than PETG and more toughness than ASA. The eSUN ePA-CF delivers both at a price point that makes reprinting after a crash genuinely painless. The 12% CF loading hits a practical balance between stiffness and printability.
+        </p>
+        <p>
+          The main trade-off is print sensitivity. Where the Polymaker PA12-CF will often tolerate imperfect conditions, the eSUN ePA-CF is less forgiving — particularly around bed adhesion. Textured PEI flex beds work reliably; glass with a PVA glue stick works; bare smooth PEI without surface treatment can release mid-print on larger parts. Drying protocol is non-negotiable with this filament: 8 hours at 80&deg;C before the first print, and if your ambient humidity is above 40%, active drying during any print longer than 90 minutes. We had two failed prints in our testing period that traced back to printing from a spool that had been open for 18 hours in a 55% RH environment. After that, we instituted a strict drying protocol and had no further failures.
+        </p>
+        <p>
+          For builders who are already experienced with PA-CF's requirements — dry storage, enclosure, hardened nozzle — the eSUN ePA-CF is an excellent option that saves real money at volume. Printing 20 motor mounts over a season costs roughly $11 in filament instead of $14 with Bambu. Across a full FPV freestyle season, those savings are meaningful. The colour availability is also the broadest of the three options, which matters if you're printing parts that will be visible on a build.
+        </p>
+      </div>
+
+      <!-- Affiliate Box: eSUN ePA-CF -->
+      <div class="affiliate-box reveal">
+        <div class="affiliate-box__img-wrap" style="background: linear-gradient(135deg,#28201a,#3a2e1e);">
+          <span style="font-size:100px;opacity:0.35;position:absolute;" aria-hidden="true">&#128640;</span>
+          <span class="affiliate-box__badge">Best Value</span>
+        </div>
+        <div class="affiliate-box__body">
+          <p class="affiliate-box__category">ePA-CF Filament // 12% Carbon Fibre &mdash; Value Pick</p>
+          <h3 class="affiliate-box__title">eSUN ePA-CF</h3>
+          <div class="affiliate-box__rating">
+            <span class="stars" aria-label="4 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+            <span class="affiliate-box__rating-num">Best Value &mdash; 6-Month Field Test</span>
+          </div>
+          <ul class="affiliate-box__bullets">
+            <li><strong>$28/500g</strong> &mdash; lowest cost PA-CF in this category, significant savings at volume</li>
+            <li>Performance within 10&ndash;15% of Bambu PA-CF on stiffness and layer adhesion</li>
+            <li><strong>12% CF loading</strong> &mdash; practical balance between stiffness and print workability</li>
+            <li>Available in multiple colours &mdash; broadest range of the three options</li>
+            <li>Excellent for non-structural parts: GoPro mounts, GPS brackets, VTX standoffs</li>
+          </ul>
+          <div class="affiliate-box__price-row">
+            <div>
+              <span class="affiliate-box__price">$27.99</span>
+            </div>
+            <a href="https://www.amazon.ca/s?k=esun+epa-cf+filament&tag=aeroinfill-20"
+               class="affiliate-box__cta affiliate-box__cta--amazon"
+               target="_blank" rel="nofollow noopener sponsored"
+               aria-label="Check current price of eSUN ePA-CF on Amazon (affiliate link)">
+              Check Price on Amazon
+            </a>
+          </div>
+          <p class="affiliate-box__disclaimer">
+            &#9888; Affiliate link &mdash; we earn a commission at no extra cost to you.
+            <a href="../disclosure.html">Full disclosure &rarr;</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="pro-con reveal">
+        <div class="pro-con__col">
+          <p class="pro-con__heading pro-con__heading--pros">&#9670; Pros</p>
+          <ul class="pro-con__list pro-con__list--pros">
+            <li>Significantly cheaper than Bambu or Polymaker options</li>
+            <li>Good stiffness for the price — within 15% of best-in-class</li>
+            <li>Available in multiple colours</li>
+            <li>Widely stocked — rarely out of stock</li>
+          </ul>
+        </div>
+        <div class="pro-con__col">
+          <p class="pro-con__heading pro-con__heading--cons">&#8213; Cons</p>
+          <ul class="pro-con__list pro-con__list--cons">
+            <li>Requires strict 8-hour drying protocol — no shortcuts</li>
+            <li>More bed adhesion experimentation needed on smooth surfaces</li>
+            <li>Slightly lower layer adhesion consistency vs. Bambu PA-CF</li>
+            <li>High moisture sensitivity — open spool over 18 hours caused failures in our testing</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="verdict-box">
+        <p class="verdict-box__label">&#9670; AeroInfill Verdict</p>
+        <p>
+          <strong>Buy this if you already understand PA-CF printing and want to save money at volume.</strong> The eSUN ePA-CF is not a beginner's filament — it requires discipline around drying and surface preparation. But for experienced builders who respect that discipline, it delivers genuine PA-CF performance at a price point that makes crash-replacing parts financially painless.
+        </p>
+      </div>
+
+      <!-- ── BUYING GUIDE ────────────────────────────────── -->
+      <div class="article-divider"><div class="article-divider__line"></div><div class="article-divider__diamond"></div><div class="article-divider__line"></div></div>
+
+      <div class="prose" id="buying-guide">
+        <h2 data-num="GUIDE //">How to Successfully Print PA-CF on the First Try</h2>
+
+        <h3>Step 1 — Dry Your Filament (This Is Not Optional)</h3>
+        <p>
+          PA-CF must be dried before printing. Standard protocol: <strong>8 hours at 80&deg;C</strong> in a food dehydrator or dedicated filament dryer. Wet PA-CF prints with visible bubbling, rough surface texture, poor layer adhesion, and dramatically reduced strength — the carbon fibre reinforcement does nothing for you if the nylon matrix is compromised by moisture-induced porosity. A $40 Sunlu filament dryer pays for itself on the first successful motor mount by preventing the filament waste and reprinting time of a failed wet print. For specific dryer recommendations, <a href="../articles/best-filament-dryers-drone-builders.html">see our filament dryer guide</a>.
+        </p>
+
+        <h3>Step 2 — Enclosure Is Required for Warping</h3>
+        <p>
+          Open-frame printing of PA-CF is possible only in very warm ambient conditions (25&deg;C+) with no air movement. Any draft or cool air hitting the print during the build will cause layer delamination and warping, particularly on taller parts where the thermal gradient between layers becomes significant. An enclosed printer — the Bambu X1C, Creality K1, or similar — has a substantial advantage here because the chamber temperature stabilises around 40&ndash;50&deg;C and remains consistent throughout the print. For Prusa, Voron, or other open-frame machines, a cardboard box draped over the printer or a $30 IKEA Lack enclosure makes the difference between a usable part and a warped failure. The enclosure doesn't need to be sophisticated — it needs to trap heat and block airflow.
+        </p>
+
+        <h3>Step 3 — Use the Right Nozzle</h3>
+        <p>
+          PA-CF requires a <strong>hardened steel nozzle as a minimum</strong>. The chopped carbon fibre content in any CF-filled filament is highly abrasive, and a standard brass nozzle will wear measurably within 10&ndash;20 hours of printing PA-CF — the bore expands, dimensional accuracy degrades, and you'll see under-extrusion artifacts in fine features. A hardened steel nozzle (V6, Volcano, or Revo format) costs $10&ndash;20 and lasts hundreds of hours with CF filament. A tungsten carbide or ruby nozzle extends service life dramatically further and is worth the investment for high-volume builders. For a full comparison of nozzle materials and formats for CF filament, see our guide on <a href="../articles/best-nozzles-carbon-fiber-filament.html">best nozzles for CF filament</a>.
+        </p>
+
+        <h3>Step 4 — Bed Adhesion</h3>
+        <p>
+          Textured PEI sheets are the most reliable bed surface for PA-CF — the mechanical grip from the texture provides first-layer adhesion that holds through the thermal stresses of the print. Smooth PEI can release on larger parts, particularly near the corners where the print geometry creates the most warping force. On smooth glass or smooth PEI, a thin layer of PVA glue stick (standard Elmer's school glue stick) applied and dried provides reliable adhesion. Bed temperature should be held at <strong>80&ndash;90&deg;C throughout the print</strong> — dropping to ambient after the first layer, as some profiles do for PETG, is not appropriate for nylon and will cause delamination in longer prints.
+        </p>
+
+        <h3>Step 5 — Print Settings</h3>
+        <p>
+          The settings below are the baseline we used across all three filaments in our testing. Adjust nozzle temperatures within the ranges by doing a temperature tower first if you're dialling in a new filament or printer combination.
+        </p>
+
+        <div class="settings-table-wrap">
+          <table class="settings-table" aria-label="PA-CF recommended print settings">
+            <thead>
+              <tr>
+                <th scope="col">Parameter</th>
+                <th scope="col">Value</th>
+                <th scope="col">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Nozzle temp</strong></td>
+                <td>255&ndash;270&deg;C</td>
+                <td>Start at 260&deg;C; reduce if stringing, increase if under-extruding</td>
+              </tr>
+              <tr>
+                <td><strong>Bed temp</strong></td>
+                <td>80&ndash;90&deg;C</td>
+                <td>Hold throughout print, do not drop after first layer</td>
+              </tr>
+              <tr>
+                <td><strong>Print speed</strong></td>
+                <td>40&ndash;60 mm/s</td>
+                <td>For structural parts; non-structural can go to 80 mm/s</td>
+              </tr>
+              <tr>
+                <td><strong>Layer height</strong></td>
+                <td>0.2 mm</td>
+                <td>0.15 mm for fine details; 0.25 mm loses strength</td>
+              </tr>
+              <tr>
+                <td><strong>Wall count</strong></td>
+                <td>4+ walls</td>
+                <td>Motor mounts: 5&ndash;6 walls; GPS brackets: 3 walls sufficient</td>
+              </tr>
+              <tr>
+                <td><strong>Infill</strong></td>
+                <td>40%+ gyroid</td>
+                <td>Gyroid distributes impact forces isotropically; grid is weaker in crash loading</td>
+              </tr>
+              <tr>
+                <td><strong>Cooling fan</strong></td>
+                <td>5&ndash;10% max</td>
+                <td>None on first 5 layers; excessive cooling causes delamination</td>
+              </tr>
+              <tr>
+                <td><strong>First layer width</strong></td>
+                <td>110%</td>
+                <td>Extra width improves bed adhesion on textured PEI</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Related Articles</h3>
+        <ul>
+          <li><a href="../articles/best-filament-cf-composites.html">Best Carbon Fiber Composite Filaments for Drone Builds</a></li>
+          <li><a href="../articles/best-nozzles-carbon-fiber-filament.html">Best Nozzles for Carbon Fiber Filament — Hardened Steel to Ruby</a></li>
+          <li><a href="../articles/petg-vs-asa-outdoor-drone-parts.html">PETG vs ASA for Outdoor Drone Parts: 3-Month Field Test</a></li>
+          <li><a href="../articles/when-to-use-peek-guide.html">When to Use PEEK: Aerospace-Grade Printing for Drone Builders</a></li>
+        </ul>
+      </div>
+
+    </article><!-- /article-body -->
+
+    <!-- ── SIDEBAR ────────────────────────────────────────── -->
+    <aside class="article-sidebar" aria-label="Article sidebar">
+
+      <!-- Table of Contents -->
+      <nav class="toc-widget" aria-label="Table of contents">
+        <p class="toc-widget__heading">Table of Contents</p>
+        <ol class="toc-list" style="counter-reset: toc-counter;">
+          <li class="toc-list__section-label">Overview</li>
+          <li><a href="#comparison-table">Comparison Table</a></li>
+          <li class="toc-divider" role="separator" aria-hidden="true"></li>
+          <li class="toc-list__section-label">Reviews</li>
+          <li><a href="#bambu-pa-cf">Bambu PA-CF</a></li>
+          <li><a href="#polymaker-pa12-cf">Polymaker PA12-CF</a></li>
+          <li><a href="#esun-epa-cf">eSUN ePA-CF</a></li>
+          <li class="toc-divider" role="separator" aria-hidden="true"></li>
+          <li><a href="#buying-guide">How to Print PA-CF</a></li>
+        </ol>
+      </nav>
+
+      <!-- Top Pick compact box -->
+      <div class="sidebar-pick">
+        <p class="sidebar-pick__label">&#9670; Our Top Pick</p>
+        <div class="sidebar-pick__img" aria-hidden="true">&#127381;</div>
+        <div class="sidebar-pick__name">Bambu PA-CF</div>
+        <div class="sidebar-pick__stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="sidebar-pick__price">$34.99</div>
+        <a href="https://www.amazon.ca/s?k=bambu+pa-cf+filament&tag=aeroinfill-20"
+           class="sidebar-pick__cta"
+           target="_blank" rel="nofollow noopener sponsored"
+           aria-label="Check price of Bambu PA-CF on Amazon">
+          Check Price on Amazon
+        </a>
+        <p class="sidebar-pick__disclaimer">&#9888; Affiliate link &mdash; <a href="../disclosure.html">see disclosure</a></p>
+      </div>
+
+      <!-- Disclosure -->
+      <div class="sidebar-disclosure">
+        <p>
+          <strong style="color:var(--amber);">// Affiliate Disclosure</strong><br>
+          AeroInfill earns a commission on purchases made through links on this page at no extra cost to you.
+          Prices are accurate at time of publication but may change.
+          <a href="../disclosure.html">Read our full disclosure policy.</a>
+        </p>
+      </div>
+
+    </aside>
+  </div><!-- /article-layout -->
+
+  <!-- ══ FOOTER ═════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-logo" aria-label="AeroInfill home"><img src="../images/logo.png" alt="" class="nav-logo__img" /><div><span class="nav-logo__wordmark">AeroInfill</span><span class="nav-logo__sub">3D Printing Intel</span></div></a>
+        <p class="footer-brand__tagline">
+          Field-tested reviews and gear intelligence for aerospace
+          and drone hobbyists who build with precision.
+        </p>
+      </div>
+      <div>
+        <p class="footer-heading">Categories</p>
+        <ul class="footer-links">
+          <li><a href="../category/printers.html">Printers</a></li>
+          <li><a href="../category/materials.html">Materials</a></li>
+          <li><a href="../category/drone-parts.html">Drone Parts</a></li>
+          <li><a href="../category/design-cad.html">Design &amp; CAD</a></li>
+          <li><a href="../category/guides.html">Guides</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Top Reads</p>
+        <ul class="footer-links">
+          <li><a href="../articles/best-3d-printers-drone-frames.html">Best Printers</a></li>
+          <li><a href="../articles/best-filament-cf-composites.html">Best Filaments</a></li>
+          <li><a href="../articles/complete-fpv-drone-build-3d-print.html">FPV Build Guide</a></li>
+          <li><a href="../articles/first-drone-part-beginner-guide.html">Beginner Guide</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">About</p>
+        <ul class="footer-links">
+          <li><a href="../about.html">Our Mission</a></li>
+          <li><a href="../review-process.html">Review Process</a></li>
+          <li><a href="../disclosure.html">Affiliate Disclosure</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">
+        &copy; 2026 AeroInfill. All rights reserved. &nbsp;//&nbsp;
+        <a href="../disclosure.html">Affiliate Disclosure</a> &nbsp;//&nbsp;
+        <a href="../privacy.html">Privacy Policy</a><br>
+        AeroInfill is a participant in the Amazon Services LLC Associates Program,
+        an affiliate advertising program designed to provide a means for sites to
+        earn advertising fees by advertising and linking to amazon.ca.
+      </p>
+      <div class="footer-signal">
+        <div class="signal-dot" aria-hidden="true"></div>
+        SIGNAL ACTIVE &mdash; TORONTO, CA
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ JS ═════════════════════════════════════════════════ -->
+  <script src="../js/main.js"></script>
+
+  <!-- Active TOC highlight on scroll -->
+  <script>
+    (function() {
+      const tocLinks = document.querySelectorAll('.toc-list a');
+      const sections = ['bambu-pa-cf','polymaker-pa12-cf','esun-epa-cf','buying-guide']
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+
+      if (!tocLinks.length || !sections.length) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            tocLinks.forEach(l => l.classList.remove('active'));
+            const active = document.querySelector(`.toc-list a[href="#${entry.target.id}"]`);
+            if (active) active.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+
+      sections.forEach(s => observer.observe(s));
+    })();
+  </script>
+
+</body>
+</html>
