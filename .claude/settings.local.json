@@ -23,7 +23,11 @@
       "Bash(pip install:*)",
       "Bash(python -m pip install Pillow -q)",
       "Bash(python -m pip install Pillow)",
-      "Bash(python)"
+      "Bash(python)",
+      "Bash(git commit -m ':*)",
+      "Bash(git push:*)",
+      "Bash(git add:*)",
+      "Bash(grep -n \"ASIN\" /c/Users/SR52/Documents/aeroinfill/articles/*.html)"
     ]
   }
 }
