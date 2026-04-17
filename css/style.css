@@ -312,11 +312,13 @@ body::after {
   left: 0;
   right: 0;
   z-index: 1000;
-  height: var(--nav-height);
+  height: calc(var(--nav-height) + env(safe-area-inset-top));
+  padding-top: env(safe-area-inset-top);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 var(--content-pad);
+  padding-left: var(--content-pad);
+  padding-right: var(--content-pad);
   background: rgba(13,15,12,0.94);
   border-bottom: 1px solid var(--amber);
   backdrop-filter: blur(10px);
@@ -445,7 +447,7 @@ body::after {
 .nav-drawer {
   display: none;
   position: fixed;
-  top: var(--nav-height);
+  top: calc(var(--nav-height) + env(safe-area-inset-top));
   left: 0;
   right: 0;
   background: rgba(13,15,12,0.98);
